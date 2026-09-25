@@ -4,7 +4,6 @@
   --tile: #151517;
   --line: #232326;
   --line-strong: #2a2a2e;
-  --chip-line: #3a3a3e;
   --fg: #f2f0ec;
   --fg-soft: #c9c5be;
   --muted: #a8a39b;
@@ -314,7 +313,6 @@ a:hover { color: var(--accent); }
   flex-wrap: wrap;
 }
 .banner-title { font-size: clamp(30px, 4.4vw, 56px); line-height: 0.92; margin: 0; }
-.banner-note { font-size: 14px; color: var(--fg-soft); max-width: 300px; line-height: 1.5; margin: 0; }
 
 /* ---------- services ---------- */
 
@@ -322,22 +320,55 @@ a:hover { color: var(--accent); }
 .services-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border-left: 1px solid var(--line);
-  border-right: 1px solid var(--line);
 }
-@media (min-width: 560px) { .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 560px) {
+  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; }
+}
 @media (min-width: 1000px) { .services-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .service {
-  padding: 36px 24px;
+  padding: clamp(32px, 3.4vw, 44px) clamp(20px, 2.4vw, 32px);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  background: var(--bg);
+  gap: 12px;
 }
-.service h3 { font-size: 32px; margin: 0; }
-.service p { font-size: 15px; color: var(--dim); line-height: 1.5; margin: 0; }
+/* Subgrid keeps value / label / text on shared rows, so a 2-line label never shifts its column. */
+@media (min-width: 560px) {
+  .service { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; row-gap: 12px; }
+}
+/* Dividers only between items, never on the outer edges. */
+@media (min-width: 560px) and (max-width: 999px) {
+  .service:nth-child(even) { border-left: 1px solid var(--line); }
+  .service:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .service:nth-child(odd) { padding-left: 0; }
+}
+@media (min-width: 1000px) {
+  .service + .service { border-left: 1px solid var(--line); }
+  .service:first-child { padding-left: 0; }
+}
+.service-value { font-size: clamp(48px, 4.4vw, 64px); line-height: 0.9; color: var(--fg); white-space: nowrap; }
+.service-affix { font-size: 0.42em; color: var(--accent); letter-spacing: 0.01em; }
+.service-title {
+  margin: 8px 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+/* Small red rhombus, echoing the folk ornament. */
+.service-title::before {
+  content: "";
+  flex: none;
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  transform: translateY(-1px) rotate(45deg);
+}
+.service p { font-size: 15px; color: var(--dim); line-height: 1.5; margin: 0; max-width: 300px; }
 
 /* ---------- gallery ---------- */
 
@@ -395,24 +426,57 @@ a:hover { color: var(--accent); }
 .underline-link { font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 .underline-link span { border-bottom: 1.5px solid var(--accent); padding-bottom: 3px; }
 
-/* ---------- area ---------- */
+/* ---------- faq ---------- */
 
-.area { border-top: 1px solid var(--line); }
-.area-grid {
+.faq { border-top: 1px solid var(--line); }
+.faq-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(32px, 5vw, 56px);
+  align-items: start;
 }
-.area-intro { display: flex; flex-direction: column; gap: 20px; }
-.area-title { font-size: clamp(44px, 5vw, 60px); line-height: 0.92; margin: 0; }
-.area-lists { display: flex; flex-direction: column; gap: 24px; }
-.chip-group { display: flex; flex-direction: column; gap: 10px; }
-.chip-label { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
-.chip-solid { background: var(--fg); color: var(--bg); padding: 8px 14px; font-size: 15px; font-weight: 600; }
-.chip-outline { border: 1.5px solid var(--chip-line); padding: 7px 12px; font-size: 14px; }
-.area-lead { max-width: 500px; line-height: 1.55; }
-.area-note { font-size: 14px; color: var(--dim); line-height: 1.5; margin: 0; }
+@media (min-width: 1000px) {
+  .faq-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .faq-intro { position: sticky; top: calc(var(--header-h) + 32px); }
+}
+.faq-intro { display: flex; flex-direction: column; gap: 20px; }
+.faq-title { font-size: clamp(44px, 5vw, 60px); line-height: 0.92; margin: 0; }
+.faq-lead { max-width: 440px; line-height: 1.55; }
+.faq-lead a { font-weight: 600; white-space: nowrap; border-bottom: 1.5px solid var(--accent); }
+
+.faq-list { border-top: 1px solid var(--line-strong); }
+.faq-item { border-bottom: 1px solid var(--line-strong); }
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  min-height: 44px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover h3 { color: var(--accent); }
+.faq-item summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.faq-item h3 { margin: 0; font-size: clamp(16px, 1.6vw, 18px); font-weight: 600; line-height: 1.35; transition: color 0.15s ease; }
+.faq-item p { margin: 0; padding: 0 44px 24px 0; font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 640px; }
+
+/* Plus that turns into a minus when open. */
+.faq-icon { position: relative; flex: none; width: 18px; height: 18px; }
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 18px;
+  height: 2px;
+  background: var(--accent);
+  transition: transform 0.2s ease;
+}
+.faq-icon::after { transform: rotate(90deg); }
+.faq-item[open] .faq-icon::after { transform: rotate(0deg); }
 
 /* ---------- business ---------- */
 
@@ -446,6 +510,8 @@ a:hover { color: var(--accent); }
 .footer-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
 .footer-contact { display: flex; flex-direction: column; gap: 6px; }
 .footer-contact .subdisplay { font-size: clamp(20px, 2.4vw, 26px); }
+.footer-alt { font-size: 14px; color: var(--dim); }
+.footer-alt strong { color: var(--fg-soft); font-weight: 600; }
 .footer-phone { font-size: clamp(56px, 8vw, 96px); line-height: 0.9; }
 .footer-social { display: flex; gap: 12px; align-items: center; }
 .footer-legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--faint); }
@@ -522,28 +588,25 @@ a:hover { color: var(--accent); }
   .banner-content { top: 0; display: flex; align-items: center; }
   .banner-content .container { width: 100%; padding-bottom: 0; gap: 20px; }
   .banner-title { text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6); }
-  .banner-note { color: var(--fg); text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7); }
 
   .banner-content .container { flex-direction: column; align-items: center; text-align: center; }
-  .banner-note { max-width: 320px; }
 
   /* Breathing room between the stacked sections after the hero. */
   .services .container { padding-top: var(--section-gap-m); padding-bottom: var(--section-gap-m); }
-  .services-grid { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .section-pad { padding-top: var(--section-gap-m); padding-bottom: var(--section-gap-m); }
   .business { padding-top: var(--section-gap-m); padding-bottom: var(--section-gap-m); }
 
-  .service { padding: 28px 20px; align-items: center; text-align: center; }
-  .service h3 { font-size: 30px; }
+  .service { padding: 36px 0; align-items: center; text-align: center; gap: 10px; }
+  .service + .service { border-top: 1px solid var(--line); }
+  .service-value { font-size: 56px; }
 
-  .section-head, .area-intro { align-items: center; text-align: center; }
-  .section-lead, .area-lead { margin-left: auto; margin-right: auto; }
+  .section-head, .faq-intro { align-items: center; text-align: center; }
+  .section-lead, .faq-lead { margin-left: auto; margin-right: auto; }
   .gallery-grid { grid-auto-rows: 220px; }
   .gallery-foot { flex-direction: column; justify-content: center; text-align: center; gap: 4px; }
 
-  .area-lists { align-items: center; text-align: center; }
-  .chip-group { align-items: center; }
-  .chips { justify-content: center; }
+  .faq-item summary { padding: 20px 0; }
+  .faq-item p { padding-right: 0; }
 
   .business-card { flex-direction: column; align-items: stretch; text-align: center; }
   .business-copy { flex: none; align-items: center; }

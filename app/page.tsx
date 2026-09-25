@@ -4,12 +4,13 @@ import Pom from "@/components/Pom";
 import Vrej from "@/components/Vrej";
 import VrejStrip from "@/components/VrejStrip";
 import { FacebookIcon, ViberIcon, WhatsAppIcon } from "@/components/Icons";
-import { PHONE_LOCAL, links } from "@/lib/site";
+import { FAQ } from "@/lib/faq";
+import { PHONE_ALT_LOCAL, PHONE_E164, PHONE_ALT_E164, PHONE_LOCAL, links } from "@/lib/site";
 
 const NAV = [
   { href: "#servicii", label: "Servicii" },
   { href: "#galerie", label: "Galerie" },
-  { href: "#zona", label: "Zonă" },
+  { href: "#intrebari", label: "Întrebări" },
   { href: "#firme", label: "Pentru firme" },
 ];
 
@@ -19,11 +20,33 @@ const STEPS = [
   { title: "Unde o ducem", hint: "Service, acasă, parcare — oriunde în zonă" },
 ];
 
+// Each point leads with its key fact; label is the promise, text is the detail.
 const SERVICES = [
-  { title: "ACCIDENT", text: "Luăm mașina după ce s-au terminat actele și o ducem la service sau acasă." },
-  { title: "NU PORNEȘTE", text: "Pană, baterie, cutie — o urcăm pe platformă așa cum e." },
-  { title: "BLOCATĂ", text: "Noroi, zăpadă, șanț, parcare strâmtă — o scoatem și o mutăm." },
-  { title: "LA SERVICE", text: "Transport programat între casă, service și dealer, la ora stabilită." },
+  {
+    value: "20–30",
+    unit: "min",
+    title: "Serviciu de urgență 24/7",
+    text: "Sosire medie în Chișinău. Non-stop, inclusiv noaptea și de sărbători.",
+  },
+  {
+    value: "Orice",
+    unit: "stare",
+    title: "Toate tipurile de vehicule",
+    text: "Avariate, blocate sau care nu pornesc. Plus motociclete și ATV-uri.",
+  },
+  {
+    value: "6",
+    unit: "m",
+    title: "Echipament profesional",
+    text: "Platformă cu troliu electric. Încărcăm bateria și pe loc.",
+  },
+  {
+    prefix: "de la",
+    value: "250",
+    unit: "lei",
+    title: "Operatori licențiați",
+    text: "Preț confirmat la telefon, fără costuri ascunse. Asigurare inclusă.",
+  },
 ];
 
 const GALLERY = [
@@ -33,10 +56,28 @@ const GALLERY = [
   { src: "/images/jump-start.jpg", title: "Pornire cu cabluri", meta: "Pe loc", pos: "center 50%", tile: "" },
 ];
 
-const SECTORS = ["Botanica", "Buiucani", "Centru", "Ciocana", "Râșcani"];
-const SUBURBS = [
-  "Durlești", "Codru", "Sângera", "Stăuceni", "Cricova", "Vatra", "Ghidighici",
-  "Trușeni", "Bubuieci", "Budești", "Băcioi", "Grătiești", "Colonița", "Tohatin",
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "AutomotiveBusiness",
+    name: "Evacuator 4You",
+    description: "Evacuator și tractări auto non-stop în Chișinău, suburbii și în toată Moldova.",
+    telephone: [PHONE_E164, PHONE_ALT_E164],
+    priceRange: "de la 250 MDL",
+    openingHours: "Mo-Su 00:00-23:59",
+    areaServed: ["Chișinău", "Republica Moldova"],
+    address: { "@type": "PostalAddress", addressLocality: "Chișinău", addressCountry: "MD" },
+    sameAs: [links.facebook],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
 ];
 
 function MessengerButtons() {
@@ -160,7 +201,6 @@ export default function Home() {
                 <br />
                 <span className="accent">NOI TOT VENIM.</span>
               </p>
-              <p className="banner-note">Mașina noastră, cu numărul nostru pe ea. Nu intermediem — venim noi.</p>
             </div>
           </div>
         </section>
@@ -170,7 +210,12 @@ export default function Home() {
             <div className="services-grid">
               {SERVICES.map((s) => (
                 <div key={s.title} className="service">
-                  <h3 className="display">{s.title}</h3>
+                  <div className="display service-value">
+                    {s.prefix && <span className="service-affix">{s.prefix} </span>}
+                    {s.value}
+                    <span className="service-affix"> {s.unit}</span>
+                  </div>
+                  <h3 className="service-title">{s.title}</h3>
                   <p>{s.text}</p>
                 </div>
               ))}
@@ -209,39 +254,29 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="zona" className="area">
-          <div className="container section-pad area-grid">
-            <div className="area-intro">
-              <div className="eyebrow">Zona noastră</div>
-              <h2 className="display area-title">
-                DOAR CHIȘINĂU.
+        <section id="intrebari" className="faq">
+          <div className="container section-pad faq-grid">
+            <div className="faq-intro">
+              <div className="eyebrow">Întrebări frecvente</div>
+              <h2 className="display faq-title">
+                ÎNTREBĂRI
                 <br />
-                DE ASTA AJUNGEM REPEDE.
+                ȘI RĂSPUNSURI
               </h2>
-              <p className="section-lead area-lead">Nu plecăm în curse lungi prin țară, deci mașina e mereu aproape de tine.</p>
+              <p className="section-lead faq-lead">
+                Nu ai găsit răspunsul? Sună la <a href={links.tel}>{PHONE_LOCAL}</a> — îți spunem pe loc.
+              </p>
             </div>
-            <div className="area-lists">
-              <div className="chip-group">
-                <div className="chip-label">Toate sectoarele</div>
-                <ul className="chips">
-                  {SECTORS.map((s) => (
-                    <li key={s} className="chip-solid">
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="chip-group">
-                <div className="chip-label">Suburbii</div>
-                <ul className="chips">
-                  {SUBURBS.map((s) => (
-                    <li key={s} className="chip-outline">
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <p className="area-note">Nu ești sigur dacă ajungem? Sună — îți spunem pe loc.</p>
+            <div className="faq-list">
+              {FAQ.map((f) => (
+                <details key={f.q} className="faq-item">
+                  <summary>
+                    <h3>{f.q}</h3>
+                    <span className="faq-icon" aria-hidden="true" />
+                  </summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>
@@ -271,6 +306,9 @@ export default function Home() {
               <a href={links.tel} className="display footer-phone">
                 {PHONE_LOCAL}
               </a>
+              <a href={links.telAlt} className="footer-alt">
+                Linie alternativă: <strong>{PHONE_ALT_LOCAL}</strong>
+              </a>
             </div>
             <div className="footer-social">
               <MessengerButtons />
@@ -282,7 +320,7 @@ export default function Home() {
           <VrejStrip thickness={28} />
           <div className="footer-legal">
             <span>© 2026 Evacuator 4You · Chișinău</span>
-            <span>Tractări auto în Chișinău și suburbii</span>
+            <span>Tractări auto în Chișinău, suburbii și în toată Moldova</span>
           </div>
         </div>
       </footer>
@@ -298,6 +336,11 @@ export default function Home() {
           <WhatsAppIcon size={28} />
         </a>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
     </>
   );
 }

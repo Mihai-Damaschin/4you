@@ -17,7 +17,7 @@ const barlow = Barlow_Condensed({
 export const metadata: Metadata = {
   title: "Evacuator 4You — non-stop în Chișinău",
   description:
-    "Evacuator non-stop în Chișinău și suburbii. Mașini avariate, în pană sau blocate — le luăm de oriunde și le ducem unde spui tu. Sună: 060 551 000.",
+    "Evacuator non-stop în Chișinău, suburbii și în toată Moldova. Platformă de 6 m cu troliu, orice mașină în orice stare, de la 250 lei. Sosim în 20–30 min. Sună: 060 551 000.",
 };
 
 export const viewport: Viewport = {
