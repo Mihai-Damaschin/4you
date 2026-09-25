@@ -1,20 +1,19 @@
-"use client";
+import { LOCALES, localePath, type Locale } from "@/lib/i18n";
 
-import { useState } from "react";
-
-const LANGS = ["RO", "RU", "EN"] as const;
-
-// Visual-only for now: the design has no RU/EN copy yet.
-export default function LangSwitch() {
-  const [lang, setLang] = useState<(typeof LANGS)[number]>("RO");
-
+export default function LangSwitch({ current, label, slug }: { current: Locale; label: string; slug?: string }) {
   return (
-    <div className="lang" role="group" aria-label="Limba">
-      {LANGS.map((k) => (
-        <button key={k} type="button" aria-pressed={k === lang} onClick={() => setLang(k)}>
-          {k}
-        </button>
+    <nav className="lang" aria-label={label}>
+      {LOCALES.map((l) => (
+        <a
+          key={l}
+          href={localePath(l, slug)}
+          hrefLang={l}
+          lang={l}
+          aria-current={l === current ? "page" : undefined}
+        >
+          {l.toUpperCase()}
+        </a>
       ))}
-    </div>
+    </nav>
   );
 }
