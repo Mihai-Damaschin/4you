@@ -1,10 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { Archivo, Barlow_Condensed, Roboto, Roboto_Condensed } from "next/font/google";
 import { getDictionary } from "@/lib/dictionaries";
 import { LOCALES, OG_LOCALE, hasLocale, languageAlternates, localePath } from "@/lib/i18n";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "../globals.css";
+
+const GOOGLE_ADS_ID = "AW-18482277256";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -78,7 +81,16 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
 
   return (
     <html lang={lang} className={fonts}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`} strategy="afterInteractive" />
+        <Script id="google-tag" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GOOGLE_ADS_ID}');`}
+        </Script>
+      </body>
     </html>
   );
 }
