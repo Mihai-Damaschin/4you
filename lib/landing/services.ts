@@ -29,7 +29,7 @@ export const SERVICES: Service[] = [
         name: "Tractare auto",
         title: "Tractare auto Chișinău non-stop — de la 250 lei | 4You",
         description:
-          "Tractare auto în Chișinău, suburbii și în toată Moldova, 24/7. Platformă de 6 m cu troliu electric, orice mașină în orice stare. De la 250 lei. Sună: 060 551 000.",
+          "Tractare auto în Chișinău, suburbii și în toată Moldova, 24/7. Platformă de 6 m cu troliu electric, orice mașină în orice stare. De la 250 lei. Sună: 060 55 1000.",
         h1: "TRACTARE AUTO",
         accent: "ORICE MAȘINĂ, ORICE STARE",
         lead: "Mașina nu mai merge, are roțile blocate sau nu vrei să riști pe drum? O urcăm pe platformă și o ducem unde spui tu — la service, acasă sau într-o parcare.",
@@ -66,7 +66,7 @@ export const SERVICES: Service[] = [
         name: "Эвакуация автомобилей",
         title: "Эвакуация автомобилей Кишинёв 24/7 — от 250 лей | 4You",
         description:
-          "Эвакуация автомобилей в Кишинёве, пригородах и по всей Молдове, круглосуточно. Платформа 6 м с электролебёдкой, любая машина в любом состоянии. От 250 лей. Звоните: 060 551 000.",
+          "Эвакуация автомобилей в Кишинёве, пригородах и по всей Молдове, круглосуточно. Платформа 6 м с электролебёдкой, любая машина в любом состоянии. От 250 лей. Звоните: 060 55 1000.",
         h1: "ЭВАКУАЦИЯ АВТО",
         accent: "ЛЮБАЯ МАШИНА, ЛЮБОЕ СОСТОЯНИЕ",
         lead: "Машина не едет, колёса заблокированы или не хотите рисковать в дороге? Погрузим её на платформу и отвезём, куда скажете — в сервис, домой или на парковку.",
@@ -103,7 +103,7 @@ export const SERVICES: Service[] = [
         name: "Car towing",
         title: "Car Towing Chișinău 24/7 — from 250 MDL | 4You",
         description:
-          "Car towing in Chișinău, the suburbs and all of Moldova, 24/7. 6 m flatbed with electric winch, any car in any condition. From 250 MDL. Call: +373 60 551 000.",
+          "Car towing in Chișinău, the suburbs and all of Moldova, 24/7. 6 m flatbed with electric winch, any car in any condition. From 250 MDL. Call: +373 60 55 1000.",
         h1: "CAR TOWING",
         accent: "ANY CAR, ANY CONDITION",
         lead: "The car won't drive, the wheels are locked or you'd rather not risk the road? We load it onto the flatbed and take it wherever you say — a garage, home or a car park.",
@@ -146,7 +146,7 @@ export const SERVICES: Service[] = [
         name: "Evacuare după accident",
         title: "Evacuare auto după accident Chișinău 24/7 | 4You",
         description:
-          "Evacuator pentru mașini avariate după accident, în Chișinău și în toată Moldova, non-stop. Încărcăm și mașini cu roțile blocate. De la 250 lei. Sună: 060 551 000.",
+          "Evacuator pentru mașini avariate după accident, în Chișinău și în toată Moldova, non-stop. Încărcăm și mașini cu roțile blocate. De la 250 lei. Sună: 060 55 1000.",
         h1: "DUPĂ ACCIDENT",
         accent: "LUĂM MAȘINA DE ACOLO",
         lead: "Ai avut un accident și mașina nu mai poate merge? După ce termini actele cu poliția sau asiguratorul, o încărcăm și o ducem unde ne spui.",
@@ -183,7 +183,7 @@ export const SERVICES: Service[] = [
         name: "Эвакуация после ДТП",
         title: "Эвакуатор после ДТП Кишинёв 24/7 | 4You",
         description:
-          "Эвакуатор для битых машин после ДТП в Кишинёве и по всей Молдове, круглосуточно. Грузим даже машины с заблокированными колёсами. От 250 лей. Звоните: 060 551 000.",
+          "Эвакуатор для битых машин после ДТП в Кишинёве и по всей Молдове, круглосуточно. Грузим даже машины с заблокированными колёсами. От 250 лей. Звоните: 060 55 1000.",
         h1: "ПОСЛЕ ДТП",
         accent: "ЗАБЕРЁМ МАШИНУ",
         lead: "Попали в аварию и машина не может ехать? Когда оформление с полицией или страховой закончено, мы погрузим её и отвезём, куда скажете.",
@@ -220,7 +220,7 @@ export const SERVICES: Service[] = [
         name: "Accident recovery",
         title: "Accident Recovery & Towing Chișinău 24/7 | 4You",
         description:
-          "Tow truck for cars damaged in an accident, in Chișinău and all of Moldova, 24/7. We load cars even with locked wheels. From 250 MDL. Call: +373 60 551 000.",
+          "Tow truck for cars damaged in an accident, in Chișinău and all of Moldova, 24/7. We load cars even with locked wheels. From 250 MDL. Call: +373 60 55 1000.",
         h1: "AFTER AN ACCIDENT",
         accent: "WE TAKE THE CAR AWAY",
         lead: "Had an accident and the car can't be driven? Once the paperwork with the police or the insurer is done, we load it and take it wherever you tell us.",
@@ -263,7 +263,7 @@ export const SERVICES: Service[] = [
         name: "Pornire auto / baterie",
         title: "Pornire auto cu cabluri Chișinău 24/7 — baterie descărcată | 4You",
         description:
-          "Baterie descărcată? Venim cu echipament de pornire oriunde în Chișinău și suburbii, non-stop, în 20–30 min în medie. Dacă nu pornește, o tractăm. Sună: 060 551 000.",
+          "Baterie descărcată? Venim cu echipament de pornire oriunde în Chișinău și suburbii, non-stop, în 20–30 min în medie. Dacă nu pornește, o tractăm. Sună: 060 55 1000.",
         h1: "MAȘINA NU PORNEȘTE?",
         accent: "O PORNIM PE LOC",
         lead: "Bateria s-a descărcat peste noapte sau pe frig? Venim cu echipament de pornire și încărcăm bateria oriunde te afli — acasă, la birou sau pe drum.",
@@ -300,7 +300,7 @@ export const SERVICES: Service[] = [
         name: "Прикуривание / аккумулятор",
         title: "Прикурить авто Кишинёв 24/7 — сел аккумулятор | 4You",
         description:
-          "Сел аккумулятор? Приедем с пусковым устройством в любую точку Кишинёва и пригородов круглосуточно, в среднем за 20–30 мин. Не заведётся — эвакуируем. Звоните: 060 551 000.",
+          "Сел аккумулятор? Приедем с пусковым устройством в любую точку Кишинёва и пригородов круглосуточно, в среднем за 20–30 мин. Не заведётся — эвакуируем. Звоните: 060 55 1000.",
         h1: "НЕ ЗАВОДИТСЯ?",
         accent: "ЗАВЕДЁМ НА МЕСТЕ",
         lead: "Аккумулятор сел за ночь или на морозе? Приедем с пусковым устройством и зарядим аккумулятор, где бы вы ни были — дома, у офиса или в дороге.",
@@ -337,7 +337,7 @@ export const SERVICES: Service[] = [
         name: "Jump-start / battery",
         title: "Jump-Start Service Chișinău 24/7 — Flat Battery | 4You",
         description:
-          "Flat battery? We bring jump-start equipment anywhere in Chișinău and the suburbs, 24/7, in 20–30 min on average. If it still won't start, we tow it. Call: +373 60 551 000.",
+          "Flat battery? We bring jump-start equipment anywhere in Chișinău and the suburbs, 24/7, in 20–30 min on average. If it still won't start, we tow it. Call: +373 60 55 1000.",
         h1: "CAR WON'T START?",
         accent: "WE START IT ON THE SPOT",
         lead: "Battery died overnight or in the cold? We come with jump-start equipment and charge the battery wherever you are — at home, at the office or on the road.",
@@ -380,7 +380,7 @@ export const SERVICES: Service[] = [
         name: "Transport moto și ATV",
         title: "Transport motociclete și ATV Chișinău 24/7 | 4You",
         description:
-          "Transport motociclete, scutere și ATV-uri pe platformă, în Chișinău și în toată Moldova, non-stop. Fixare sigură, asigurare inclusă. Sună: 060 551 000.",
+          "Transport motociclete, scutere și ATV-uri pe platformă, în Chișinău și în toată Moldova, non-stop. Fixare sigură, asigurare inclusă. Sună: 060 55 1000.",
         h1: "MOTO ȘI ATV",
         accent: "PE PLATFORMĂ, ÎN SIGURANȚĂ",
         lead: "Motocicleta a rămas în pană, ai cumpărat un ATV sau trebuie să-l duci la service? Îl urcăm pe platformă, îl fixăm și îl ducem unde ai nevoie.",
@@ -417,7 +417,7 @@ export const SERVICES: Service[] = [
         name: "Перевозка мото и квадроциклов",
         title: "Перевозка мотоциклов и квадроциклов Кишинёв 24/7 | 4You",
         description:
-          "Перевозка мотоциклов, скутеров и квадроциклов на платформе по Кишинёву и всей Молдове, круглосуточно. Надёжное крепление, страховка включена. Звоните: 060 551 000.",
+          "Перевозка мотоциклов, скутеров и квадроциклов на платформе по Кишинёву и всей Молдове, круглосуточно. Надёжное крепление, страховка включена. Звоните: 060 55 1000.",
         h1: "МОТО И КВАДРОЦИКЛЫ",
         accent: "НА ПЛАТФОРМЕ, НАДЁЖНО",
         lead: "Мотоцикл сломался, вы купили квадроцикл или его нужно отвезти в сервис? Погрузим на платформу, закрепим и доставим, куда нужно.",
@@ -454,7 +454,7 @@ export const SERVICES: Service[] = [
         name: "Motorcycle & ATV transport",
         title: "Motorcycle & ATV Transport Chișinău 24/7 | 4You",
         description:
-          "Motorcycle, scooter and ATV transport on a flatbed, in Chișinău and all of Moldova, 24/7. Secured for the ride, insurance included. Call: +373 60 551 000.",
+          "Motorcycle, scooter and ATV transport on a flatbed, in Chișinău and all of Moldova, 24/7. Secured for the ride, insurance included. Call: +373 60 55 1000.",
         h1: "MOTO AND ATV",
         accent: "ON THE FLATBED, SECURED",
         lead: "Motorcycle broke down, bought an ATV or need it at the garage? We load it onto the flatbed, secure it and take it where you need.",
@@ -497,7 +497,7 @@ export const SERVICES: Service[] = [
         name: "Curse în Moldova și peste hotare",
         title: "Evacuator în toată Moldova, curse spre România și Ucraina | 4You",
         description:
-          "Transport auto pe platformă între orașe: Chișinău — orice localitate din Moldova, iar la cerere spre România sau Ucraina. Preț confirmat la telefon. Sună: 060 551 000.",
+          "Transport auto pe platformă între orașe: Chișinău — orice localitate din Moldova, iar la cerere spre România sau Ucraina. Preț confirmat la telefon. Sună: 060 55 1000.",
         h1: "ÎN TOATĂ MOLDOVA",
         accent: "ȘI PESTE HOTARE",
         lead: "Mașina trebuie dusă în alt oraș, ai cumpărat una din altă regiune sau ai rămas pe traseu departe de casă? Facem curse în toată Moldova, iar la cerere și spre România sau Ucraina.",
@@ -534,7 +534,7 @@ export const SERVICES: Service[] = [
         name: "Межгород и заграница",
         title: "Эвакуатор по всей Молдове, рейсы в Румынию и Украину | 4You",
         description:
-          "Перевозка машин на платформе между городами: Кишинёв — любой населённый пункт Молдовы, по запросу в Румынию или Украину. Цена по телефону. Звоните: 060 551 000.",
+          "Перевозка машин на платформе между городами: Кишинёв — любой населённый пункт Молдовы, по запросу в Румынию или Украину. Цена по телефону. Звоните: 060 55 1000.",
         h1: "ПО ВСЕЙ МОЛДОВЕ",
         accent: "И ЗА ГРАНИЦУ",
         lead: "Машину нужно отвезти в другой город, вы купили её в другом регионе или встали на трассе далеко от дома? Выполняем рейсы по всей Молдове, а по запросу — в Румынию и Украину.",
@@ -571,7 +571,7 @@ export const SERVICES: Service[] = [
         name: "Long distance & abroad",
         title: "Tow Truck Across Moldova, Trips to Romania & Ukraine | 4You",
         description:
-          "Flatbed car transport between cities: Chișinău to any town in Moldova, and on request to Romania or Ukraine. Price confirmed on the phone. Call: +373 60 551 000.",
+          "Flatbed car transport between cities: Chișinău to any town in Moldova, and on request to Romania or Ukraine. Price confirmed on the phone. Call: +373 60 55 1000.",
         h1: "ALL OF MOLDOVA",
         accent: "AND ABROAD",
         lead: "Need the car taken to another city, bought one in another region or broke down on the highway far from home? We drive all over Moldova, and on request to Romania or Ukraine.",

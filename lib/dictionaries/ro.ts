@@ -9,7 +9,7 @@ const ro = {
     title: "Evacuator Chișinău non-stop 24/7 — de la 250 lei | 4You",
     ogTitle: "Evacuator Chișinău non-stop 24/7 — 4You",
     description:
-      "Evacuator non-stop în Chișinău, suburbii și în toată Moldova. Platformă de 6 m cu troliu, orice mașină în orice stare, de la 250 lei. Sosim în 20–30 min. Sună: 060 551 000.",
+      "Evacuator non-stop în Chișinău, suburbii și în toată Moldova. Platformă de 6 m cu troliu, orice mașină în orice stare, de la 250 lei. Sosim în 20–30 min. Sună: 060 55 1000.",
   },
   langLabel: "Limba",
   navLabel: "Principal",
@@ -131,7 +131,7 @@ const ro = {
       },
       {
         q: "Cum chem evacuatorul?",
-        a: "Sună la 060 551 000 sau pe linia alternativă 060 70 2828. Ne poți scrie și pe Viber sau WhatsApp — trimite locația și venim.",
+        a: "Sună la 060 55 1000 sau pe linia alternativă 060 70 2828. Ne poți scrie și pe Viber sau WhatsApp — trimite locația și venim.",
       },
     ],
   },
@@ -166,7 +166,7 @@ const ro = {
     accent: "NON-STOP, 24/7",
     title: (a: AreaNames) => `Evacuator ${a.name} non-stop 24/7 — de la 250 lei | 4You`,
     description: (a: AreaNames) =>
-      `Evacuator ${a.inName}, non-stop. Platformă de 6 m cu troliu, orice mașină în orice stare, de la 250 lei. Sosim în medie în 20–30 min. Sună: 060 551 000.`,
+      `Evacuator ${a.inName}, non-stop. Platformă de 6 m cu troliu, orice mașină în orice stare, de la 250 lei. Sosim în medie în 20–30 min. Sună: 060 55 1000.`,
     h1: (a: AreaNames) => `EVACUATOR ${a.inName.toUpperCase()}`,
     whatHeading: (a: AreaNames) => `Ce facem ${a.inName}`,
     whatText:

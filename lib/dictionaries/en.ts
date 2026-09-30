@@ -5,7 +5,7 @@ const en: Dictionary = {
     title: "Tow Truck Chișinău 24/7 — from 250 MDL | 4You",
     ogTitle: "24/7 Tow Truck in Chișinău — 4You",
     description:
-      "24/7 towing in Chișinău, the suburbs and all of Moldova. 6 m flatbed with winch, any car in any condition, from 250 MDL. We arrive in 20–30 min. Call: +373 60 551 000.",
+      "24/7 towing in Chișinău, the suburbs and all of Moldova. 6 m flatbed with winch, any car in any condition, from 250 MDL. We arrive in 20–30 min. Call: +373 60 55 1000.",
   },
   langLabel: "Language",
   navLabel: "Main",
@@ -125,7 +125,7 @@ const en: Dictionary = {
       },
       {
         q: "How do I call the tow truck?",
-        a: "Call +373 60 551 000 or the alternative line +373 60 70 2828. You can also message us on Viber or WhatsApp — send your location and we'll come.",
+        a: "Call +373 60 55 1000 or the alternative line +373 60 70 2828. You can also message us on Viber or WhatsApp — send your location and we'll come.",
       },
     ],
   },
@@ -160,7 +160,7 @@ const en: Dictionary = {
     accent: "24/7, NON-STOP",
     title: (a: AreaNames) => `Tow Truck ${a.name} 24/7 — from 250 MDL | 4You`,
     description: (a: AreaNames) =>
-      `24/7 tow truck ${a.inName}. 6 m flatbed with winch, any car in any condition, from 250 MDL. We arrive in 20–30 min on average. Call: +373 60 551 000.`,
+      `24/7 tow truck ${a.inName}. 6 m flatbed with winch, any car in any condition, from 250 MDL. We arrive in 20–30 min on average. Call: +373 60 55 1000.`,
     h1: (a: AreaNames) => `TOW TRUCK ${a.inName.toUpperCase()}`,
     whatHeading: (a: AreaNames) => `What we do ${a.inName}`,
     whatText:

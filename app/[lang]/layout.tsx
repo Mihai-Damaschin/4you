@@ -8,6 +8,9 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "../globals.css";
 
 const GOOGLE_ADS_ID = "AW-18482277256";
+const CONTACT_CONVERSION = `${GOOGLE_ADS_ID}/CgOrCMCx4YsdEIjXhO1E`;
+const CALL_CONVERSION_VALUE = 1.0;
+const CHAT_CONVERSION_VALUE = 0.1;
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -89,6 +92,25 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', '${GOOGLE_ADS_ID}');`}
+        </Script>
+        {/* Click-to-call conversion for every phone / Viber / WhatsApp link on the page.
+            Beacon transport lets the hit go out while the link opens, so the click is never delayed. */}
+        <Script id="google-ads-contact-conversion" strategy="afterInteractive">
+          {`document.addEventListener('click', function (e) {
+  var a = e.target instanceof Element ? e.target.closest('a[href]') : null;
+  if (!a) return;
+  var href = a.getAttribute('href') || '';
+  var value = href.indexOf('tel:') === 0 ? ${CALL_CONVERSION_VALUE}
+    : href.indexOf('viber:') === 0 || href.indexOf('https://wa.me/') === 0 ? ${CHAT_CONVERSION_VALUE}
+    : null;
+  if (value === null) return;
+  gtag('event', 'conversion', {
+    send_to: '${CONTACT_CONVERSION}',
+    value: value,
+    currency: 'EUR',
+    transport_type: 'beacon'
+  });
+});`}
         </Script>
       </body>
     </html>

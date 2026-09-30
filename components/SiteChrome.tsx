@@ -54,7 +54,7 @@ export function SiteHeader({ lang, t, slug }: { lang: Locale; t: Dictionary; slu
             <LangSwitch current={lang} label={t.langLabel} slug={slug} />
             <a href={links.tel} className="brush header-phone wide-only">
               <span className="brush-label display">
-                <span style={{ opacity: 0.75 }}>+373</span> 60 551 000
+                <span style={{ opacity: 0.75 }}>+373</span> 60 55 1000
               </span>
             </a>
           </div>
