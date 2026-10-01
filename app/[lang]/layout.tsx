@@ -7,8 +7,9 @@ import { LOCALES, OG_LOCALE, hasLocale, languageAlternates, localePath } from "@
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "../globals.css";
 
-const GOOGLE_ADS_ID = "AW-18482277256";
-const CONTACT_CONVERSION = `${GOOGLE_ADS_ID}/CgOrCMCx4YsdEIjXhO1E`;
+const GOOGLE_ADS_ID = "AW-18486884978";
+// Conversion action from the previous Google Ads account (AW-18482277256) — replace with the new account's label.
+const CONTACT_CONVERSION = "AW-18482277256/CgOrCMCx4YsdEIjXhO1E";
 const CALL_CONVERSION_VALUE = 1.0;
 const CHAT_CONVERSION_VALUE = 0.1;
 
