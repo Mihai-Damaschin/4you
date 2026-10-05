@@ -1,0 +1,412 @@
+import type { Area } from "./areas";
+
+// Towns further out in Moldova that people search for. Unlike the suburbs, arrival time and price are only given on the phone,
+// so these pages use the `town` template in the dictionaries. Distances are rounded road distances from Chișinău.
+
+export const TOWNS: Area[] = [
+  {
+    slug: "evacuator-causeni",
+    photo: 0,
+    copy: {
+      ro: {
+        name: "Căușeni",
+        inName: "în Căușeni",
+        fromName: "din Căușeni",
+        about: "Căușeni e la circa 85 km sud-est de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "Ai rămas pe traseu? Aprinde avariile, pune triunghiul și trimite-ne locația pe Viber sau WhatsApp — așa te găsim fără să cauți adresa.",
+      },
+      ru: {
+        name: "Каушаны",
+        inName: "в Каушанах",
+        fromName: "из Каушан",
+        about: "Каушаны — примерно в 85 км юго-восточнее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "Застряли на трассе? Включите аварийку, выставьте знак и отправьте нам локацию в Viber или WhatsApp — так мы найдём вас без адреса.",
+      },
+      en: {
+        name: "Căușeni",
+        inName: "in Căușeni",
+        fromName: "from Căușeni",
+        about: "Căușeni is about 85 km south-east of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "Stuck on the highway? Turn on the hazard lights, set up the warning triangle and send us your location on Viber or WhatsApp — we'll find you without an address.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-comrat",
+    photo: 1,
+    copy: {
+      ro: {
+        name: "Comrat",
+        inName: "în Comrat",
+        fromName: "din Comrat",
+        about: "Comrat e la circa 95 km sud de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "Mașina poate fi dusă la un service sau la o reprezentanță oficială din Chișinău. Nu e nevoie să mergi cu ea — ne spui doar cui o predăm.",
+      },
+      ru: {
+        name: "Комрат",
+        inName: "в Комрате",
+        fromName: "из Комрата",
+        about: "Комрат — примерно в 95 км южнее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "Машину можно отвезти в сервис или к официальному дилеру в Кишинёве. Ехать с ней не обязательно — просто скажите, кому её передать.",
+      },
+      en: {
+        name: "Comrat",
+        inName: "in Comrat",
+        fromName: "from Comrat",
+        about: "Comrat is about 95 km south of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "We can take the car to a garage or an official dealer in Chișinău. You don't have to ride along — just tell us who to hand it over to.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-hincesti",
+    photo: 2,
+    copy: {
+      ro: {
+        name: "Hîncești",
+        inName: "în Hîncești",
+        fromName: "din Hîncești",
+        about: "Hîncești e la circa 35 km sud-vest de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "După un accident, așteptăm să se termine actele cu poliția sau asiguratorul, apoi încărcăm mașina și o ducem unde ne spui.",
+      },
+      ru: {
+        name: "Хынчешты",
+        inName: "в Хынчештах",
+        fromName: "из Хынчешт",
+        about: "Хынчешты — примерно в 35 км юго-западнее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "После ДТП дожидаемся окончания оформления с полицией или страховой, затем грузим машину и везём, куда скажете.",
+      },
+      en: {
+        name: "Hîncești",
+        inName: "in Hîncești",
+        fromName: "from Hîncești",
+        about: "Hîncești is about 35 km south-west of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "After an accident, we wait until the paperwork with the police or the insurer is done, then load the car and take it where you say.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-orhei",
+    photo: 3,
+    copy: {
+      ro: {
+        name: "Orhei",
+        inName: "în Orhei",
+        fromName: "din Orhei",
+        about: "Orhei e la circa 45 km nord de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "Ai rămas pe traseu? Aprinde avariile, pune triunghiul și trimite-ne locația pe Viber sau WhatsApp — așa te găsim fără să cauți adresa.",
+      },
+      ru: {
+        name: "Оргеев",
+        inName: "в Оргееве",
+        fromName: "из Оргеева",
+        about: "Оргеев — примерно в 45 км севернее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "Застряли на трассе? Включите аварийку, выставьте знак и отправьте нам локацию в Viber или WhatsApp — так мы найдём вас без адреса.",
+      },
+      en: {
+        name: "Orhei",
+        inName: "in Orhei",
+        fromName: "from Orhei",
+        about: "Orhei is about 45 km north of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "Stuck on the highway? Turn on the hazard lights, set up the warning triangle and send us your location on Viber or WhatsApp — we'll find you without an address.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-straseni",
+    photo: 0,
+    copy: {
+      ro: {
+        name: "Strășeni",
+        inName: "în Strășeni",
+        fromName: "din Strășeni",
+        about: "Strășeni e la circa 25 km nord-vest de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "Mașina poate fi dusă la un service sau la o reprezentanță oficială din Chișinău. Nu e nevoie să mergi cu ea — ne spui doar cui o predăm.",
+      },
+      ru: {
+        name: "Страшены",
+        inName: "в Страшенах",
+        fromName: "из Страшен",
+        about: "Страшены — примерно в 25 км северо-западнее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "Машину можно отвезти в сервис или к официальному дилеру в Кишинёве. Ехать с ней не обязательно — просто скажите, кому её передать.",
+      },
+      en: {
+        name: "Strășeni",
+        inName: "in Strășeni",
+        fromName: "from Strășeni",
+        about: "Strășeni is about 25 km north-west of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "We can take the car to a garage or an official dealer in Chișinău. You don't have to ride along — just tell us who to hand it over to.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-cahul",
+    photo: 1,
+    copy: {
+      ro: {
+        name: "Cahul",
+        inName: "în Cahul",
+        fromName: "din Cahul",
+        about: "Cahul e la circa 165 km sud de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "Ai rămas pe traseu? Aprinde avariile, pune triunghiul și trimite-ne locația pe Viber sau WhatsApp — așa te găsim fără să cauți adresa.",
+      },
+      ru: {
+        name: "Кагул",
+        inName: "в Кагуле",
+        fromName: "из Кагула",
+        about: "Кагул — примерно в 165 км южнее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "Застряли на трассе? Включите аварийку, выставьте знак и отправьте нам локацию в Viber или WhatsApp — так мы найдём вас без адреса.",
+      },
+      en: {
+        name: "Cahul",
+        inName: "in Cahul",
+        fromName: "from Cahul",
+        about: "Cahul is about 165 km south of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "Stuck on the highway? Turn on the hazard lights, set up the warning triangle and send us your location on Viber or WhatsApp — we'll find you without an address.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-calarasi",
+    photo: 2,
+    copy: {
+      ro: {
+        name: "Călărași",
+        inName: "în Călărași",
+        fromName: "din Călărași",
+        about: "Călărași e la circa 55 km nord-vest de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "După un accident, așteptăm să se termine actele cu poliția sau asiguratorul, apoi încărcăm mașina și o ducem unde ne spui.",
+      },
+      ru: {
+        name: "Каларашь",
+        inName: "в Калараше",
+        fromName: "из Калараша",
+        about: "Каларашь — примерно в 55 км северо-западнее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "После ДТП дожидаемся окончания оформления с полицией или страховой, затем грузим машину и везём, куда скажете.",
+      },
+      en: {
+        name: "Călărași",
+        inName: "in Călărași",
+        fromName: "from Călărași",
+        about: "Călărași is about 55 km north-west of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "After an accident, we wait until the paperwork with the police or the insurer is done, then load the car and take it where you say.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-ungheni",
+    photo: 3,
+    copy: {
+      ro: {
+        name: "Ungheni",
+        inName: "în Ungheni",
+        fromName: "din Ungheni",
+        about: "Ungheni e la circa 105 km vest de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "Mașina poate fi dusă la un service sau la o reprezentanță oficială din Chișinău. Nu e nevoie să mergi cu ea — ne spui doar cui o predăm.",
+      },
+      ru: {
+        name: "Унгены",
+        inName: "в Унгенах",
+        fromName: "из Унген",
+        about: "Унгены — примерно в 105 км западнее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "Машину можно отвезти в сервис или к официальному дилеру в Кишинёве. Ехать с ней не обязательно — просто скажите, кому её передать.",
+      },
+      en: {
+        name: "Ungheni",
+        inName: "in Ungheni",
+        fromName: "from Ungheni",
+        about: "Ungheni is about 105 km west of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "We can take the car to a garage or an official dealer in Chișinău. You don't have to ride along — just tell us who to hand it over to.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-cimislia",
+    photo: 0,
+    copy: {
+      ro: {
+        name: "Cimișlia",
+        inName: "în Cimișlia",
+        fromName: "din Cimișlia",
+        about: "Cimișlia e la circa 65 km sud de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "Ai rămas pe traseu? Aprinde avariile, pune triunghiul și trimite-ne locația pe Viber sau WhatsApp — așa te găsim fără să cauți adresa.",
+      },
+      ru: {
+        name: "Чимишлия",
+        inName: "в Чимишлии",
+        fromName: "из Чимишлии",
+        about: "Чимишлия — примерно в 65 км южнее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "Застряли на трассе? Включите аварийку, выставьте знак и отправьте нам локацию в Viber или WhatsApp — так мы найдём вас без адреса.",
+      },
+      en: {
+        name: "Cimișlia",
+        inName: "in Cimișlia",
+        fromName: "from Cimișlia",
+        about: "Cimișlia is about 65 km south of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "Stuck on the highway? Turn on the hazard lights, set up the warning triangle and send us your location on Viber or WhatsApp — we'll find you without an address.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-edinet",
+    photo: 1,
+    copy: {
+      ro: {
+        name: "Edineț",
+        inName: "în Edineț",
+        fromName: "din Edineț",
+        about: "Edineț e la circa 200 km nord de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "Mașina poate fi dusă la un service sau la o reprezentanță oficială din Chișinău. Nu e nevoie să mergi cu ea — ne spui doar cui o predăm.",
+      },
+      ru: {
+        name: "Единец",
+        inName: "в Единце",
+        fromName: "из Единца",
+        about: "Единец — примерно в 200 км севернее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "Машину можно отвезти в сервис или к официальному дилеру в Кишинёве. Ехать с ней не обязательно — просто скажите, кому её передать.",
+      },
+      en: {
+        name: "Edineț",
+        inName: "in Edineț",
+        fromName: "from Edineț",
+        about: "Edineț is about 200 km north of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "We can take the car to a garage or an official dealer in Chișinău. You don't have to ride along — just tell us who to hand it over to.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-falesti",
+    photo: 2,
+    copy: {
+      ro: {
+        name: "Fălești",
+        inName: "în Fălești",
+        fromName: "din Fălești",
+        about: "Fălești e la circa 130 km nord-vest de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "După un accident, așteptăm să se termine actele cu poliția sau asiguratorul, apoi încărcăm mașina și o ducem unde ne spui.",
+      },
+      ru: {
+        name: "Фалешты",
+        inName: "в Фалештах",
+        fromName: "из Фалешт",
+        about: "Фалешты — примерно в 130 км северо-западнее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "После ДТП дожидаемся окончания оформления с полицией или страховой, затем грузим машину и везём, куда скажете.",
+      },
+      en: {
+        name: "Fălești",
+        inName: "in Fălești",
+        fromName: "from Fălești",
+        about: "Fălești is about 130 km north-west of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "After an accident, we wait until the paperwork with the police or the insurer is done, then load the car and take it where you say.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-floresti",
+    photo: 3,
+    copy: {
+      ro: {
+        name: "Florești",
+        inName: "în Florești",
+        fromName: "din Florești",
+        about: "Florești e la circa 130 km nord de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "Ai rămas pe traseu? Aprinde avariile, pune triunghiul și trimite-ne locația pe Viber sau WhatsApp — așa te găsim fără să cauți adresa.",
+      },
+      ru: {
+        name: "Флорешты",
+        inName: "во Флорештах",
+        fromName: "из Флорешт",
+        about: "Флорешты — примерно в 130 км севернее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "Застряли на трассе? Включите аварийку, выставьте знак и отправьте нам локацию в Viber или WhatsApp — так мы найдём вас без адреса.",
+      },
+      en: {
+        name: "Florești",
+        inName: "in Florești",
+        fromName: "from Florești",
+        about: "Florești is about 130 km north of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "Stuck on the highway? Turn on the hazard lights, set up the warning triangle and send us your location on Viber or WhatsApp — we'll find you without an address.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-rezina",
+    photo: 0,
+    copy: {
+      ro: {
+        name: "Rezina",
+        inName: "în Rezina",
+        fromName: "din Rezina",
+        about: "Rezina e la circa 95 km nord-est de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "Mașina poate fi dusă la un service sau la o reprezentanță oficială din Chișinău. Nu e nevoie să mergi cu ea — ne spui doar cui o predăm.",
+      },
+      ru: {
+        name: "Резина",
+        inName: "в Резине",
+        fromName: "из Резины",
+        about: "Резина — примерно в 95 км северо-восточнее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "Машину можно отвезти в сервис или к официальному дилеру в Кишинёве. Ехать с ней не обязательно — просто скажите, кому её передать.",
+      },
+      en: {
+        name: "Rezina",
+        inName: "in Rezina",
+        fromName: "from Rezina",
+        about: "Rezina is about 95 km north-east of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "We can take the car to a garage or an official dealer in Chișinău. You don't have to ride along — just tell us who to hand it over to.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-soroca",
+    photo: 1,
+    copy: {
+      ro: {
+        name: "Soroca",
+        inName: "în Soroca",
+        fromName: "din Soroca",
+        about: "Soroca e la circa 150 km nord de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "După un accident, așteptăm să se termine actele cu poliția sau asiguratorul, apoi încărcăm mașina și o ducem unde ne spui.",
+      },
+      ru: {
+        name: "Сороки",
+        inName: "в Сороках",
+        fromName: "из Сорок",
+        about: "Сороки — примерно в 150 км севернее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "После ДТП дожидаемся окончания оформления с полицией или страховой, затем грузим машину и везём, куда скажете.",
+      },
+      en: {
+        name: "Soroca",
+        inName: "in Soroca",
+        fromName: "from Soroca",
+        about: "Soroca is about 150 km north of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "After an accident, we wait until the paperwork with the police or the insurer is done, then load the car and take it where you say.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-balti",
+    photo: 2,
+    copy: {
+      ro: {
+        name: "Bălți",
+        inName: "în Bălți",
+        fromName: "din Bălți",
+        about: "Bălți e la circa 135 km nord de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
+        note: "Mașina poate fi dusă la un service sau la o reprezentanță oficială din Chișinău. Nu e nevoie să mergi cu ea — ne spui doar cui o predăm.",
+      },
+      ru: {
+        name: "Бельцы",
+        inName: "в Бельцах",
+        fromName: "из Бельц",
+        about: "Бельцы — примерно в 135 км севернее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
+        note: "Машину можно отвезти в сервис или к официальному дилеру в Кишинёве. Ехать с ней не обязательно — просто скажите, кому её передать.",
+      },
+      en: {
+        name: "Bălți",
+        inName: "in Bălți",
+        fromName: "from Bălți",
+        about: "Bălți is about 135 km north of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
+        note: "We can take the car to a garage or an official dealer in Chișinău. You don't have to ride along — just tell us who to hand it over to.",
+      },
+    },
+  },
+];

@@ -156,6 +156,7 @@ const ro = {
     linksLead: "Tot Chișinăul, suburbiile și restul Moldovei — alege serviciul sau localitatea.",
     servicesHeading: "Servicii",
     areasHeading: "Sectoare și suburbii",
+    townsHeading: "Orașe din Moldova",
     otherAreas: "Alte localități",
     otherServices: "Servicii",
     faqTitle: "ÎNTREBĂRI",
@@ -189,6 +190,35 @@ const ro = {
           ? `Unde puteți duce mașina ${a.fromName}?`
           : `Puteți duce mașina ${a.fromName} în Chișinău sau în altă localitate?`,
         a: `${inCity ? "Unde spui tu." : "Da."} O ducem la orice service, acasă sau într-o parcare din Chișinău, în altă localitate din Moldova sau, la cerere, spre România ori Ucraina.`,
+      },
+    ],
+  },
+  // Towns further out: price and arrival time depend on the distance, so both are confirmed on the phone.
+  town: {
+    accent: "NON-STOP, ÎN TOATĂ MOLDOVA",
+    title: (a: AreaNames) => `Evacuator ${a.name} non-stop 24/7 — preț confirmat la telefon | 4You`,
+    description: (a: AreaNames) =>
+      `Evacuator ${a.inName}, non-stop. Platformă de 6 m cu troliu, orice mașină în orice stare, transport în oraș, la Chișinău sau oriunde în Moldova. Sună: 060 55 1000.`,
+    h1: (a: AreaNames) => `EVACUATOR ${a.inName.toUpperCase()}`,
+    whatHeading: (a: AreaNames) => `Ce facem ${a.inName}`,
+    whatText:
+      "Tractăm mașini avariate, care nu pornesc sau cu roțile blocate, precum și motociclete și ATV-uri. Mașina ajunge unde spui tu: la un service din oraș, acasă, la Chișinău sau în altă localitate din Moldova.",
+    priceHeading: "Cât costă și când ajungem",
+    priceText:
+      "Prețul depinde de distanță și de tipul mașinii — îl afli la telefon, înainte să plecăm, fără costuri ascunse. Tot la telefon îți spunem ora estimată de sosire.",
+    noteHeading: "Bine de știut",
+    faq: (a: AreaNames) => [
+      {
+        q: `Cât costă un evacuator ${a.inName}?`,
+        a: "Prețul depinde de distanță și de tipul mașinii. Ți-l spunem la telefon, înainte să plecăm, fără costuri ascunse.",
+      },
+      {
+        q: `În cât timp ajunge evacuatorul ${a.inName}?`,
+        a: "Depinde de distanță și de trafic. Ora estimată de sosire ți-o spunem chiar în timpul apelului.",
+      },
+      {
+        q: `Puteți duce mașina ${a.fromName} la Chișinău?`,
+        a: "Da. O ducem la orice service, acasă sau într-o parcare din Chișinău, în altă localitate din Moldova sau, la cerere, spre România ori Ucraina.",
       },
     ],
   },

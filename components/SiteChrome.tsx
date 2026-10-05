@@ -6,7 +6,7 @@ import VrejStrip from "@/components/VrejStrip";
 import { FacebookIcon, ViberIcon, WhatsAppIcon } from "@/components/Icons";
 import type { Dictionary } from "@/lib/dictionaries";
 import { localePath, type Locale } from "@/lib/i18n";
-import { areaLinks, serviceLinks } from "@/lib/landing";
+import { areaLinks, serviceLinks, townLinks } from "@/lib/landing";
 import { PHONE_LOCAL, SITE_NAME, links } from "@/lib/site";
 
 export function MessengerButtons() {
@@ -114,6 +114,7 @@ export function LinkColumns({ lang, t, current }: { lang: Locale; t: Dictionary;
   const groups = [
     { heading: t.landing.servicesHeading, items: serviceLinks(lang) },
     { heading: t.landing.areasHeading, items: areaLinks(lang) },
+    { heading: t.landing.townsHeading, items: townLinks(lang) },
   ];
   return (
     <div className="link-columns">

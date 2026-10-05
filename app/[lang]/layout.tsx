@@ -9,6 +9,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "../globals.css";
 
 const GOOGLE_ADS_ID = "AW-18482277256";
+const GOOGLE_ANALYTICS_ID = "G-HT2D4YWRTB";
 const CONTACT_CONVERSION = `${GOOGLE_ADS_ID}/CgOrCMCx4YsdEIjXhO1E`;
 const CALL_CONVERSION_VALUE = 1.0;
 const CHAT_CONVERSION_VALUE = 0.1;
@@ -98,7 +99,8 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${GOOGLE_ADS_ID}');`}
+gtag('config', '${GOOGLE_ADS_ID}');
+gtag('config', '${GOOGLE_ANALYTICS_ID}');`}
         </Script>
         {/* Click-to-call conversion for every phone / Viber / WhatsApp link on the page.
             Beacon transport lets the hit go out while the link opens, so the click is never delayed. */}

@@ -150,6 +150,7 @@ const en: Dictionary = {
     linksLead: "All of Chișinău, the suburbs and the rest of Moldova — pick a service or a town.",
     servicesHeading: "Services",
     areasHeading: "Districts & suburbs",
+    townsHeading: "Towns in Moldova",
     otherAreas: "Other towns",
     otherServices: "Services",
     faqTitle: "COMMON",
@@ -183,6 +184,35 @@ const en: Dictionary = {
           ? `Where can you take my car ${a.fromName}?`
           : `Can you take my car ${a.fromName} to Chișinău or another town?`,
         a: `${inCity ? "Wherever you say." : "Yes."} We take it to any garage, home or car park in Chișinău, to another town in Moldova or, on request, to Romania or Ukraine.`,
+      },
+    ],
+  },
+  // Towns further out: price and arrival time depend on the distance, so both are confirmed on the phone.
+  town: {
+    accent: "24/7, ALL OF MOLDOVA",
+    title: (a: AreaNames) => `Tow Truck ${a.name} 24/7 — price confirmed by phone | 4You`,
+    description: (a: AreaNames) =>
+      `24/7 tow truck ${a.inName}. 6 m flatbed with winch, any car in any condition, transport around town, to Chișinău or anywhere in Moldova. Call: +373 60 55 1000.`,
+    h1: (a: AreaNames) => `TOW TRUCK ${a.inName.toUpperCase()}`,
+    whatHeading: (a: AreaNames) => `What we do ${a.inName}`,
+    whatText:
+      "We tow damaged cars, cars that won't start or have locked wheels, as well as motorcycles and ATVs. Your car goes wherever you say: a garage in town, home, Chișinău or another town in Moldova.",
+    priceHeading: "Price and arrival time",
+    priceText:
+      "The price depends on the distance and the type of car — you get it on the phone before we leave, with no hidden fees. We also give you the estimated arrival time on the call.",
+    noteHeading: "Good to know",
+    faq: (a: AreaNames) => [
+      {
+        q: `How much does a tow truck ${a.inName} cost?`,
+        a: "The price depends on the distance and the type of car. We tell you on the phone before we leave, with no hidden fees.",
+      },
+      {
+        q: `How fast will the tow truck arrive ${a.inName}?`,
+        a: "It depends on the distance and the traffic. We give you an estimated arrival time during the call.",
+      },
+      {
+        q: `Can you take my car ${a.fromName} to Chișinău?`,
+        a: "Yes. We take it to any garage, home or car park in Chișinău, to another town in Moldova or, on request, to Romania or Ukraine.",
       },
     ],
   },
