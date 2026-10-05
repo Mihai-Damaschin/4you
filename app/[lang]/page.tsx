@@ -5,7 +5,7 @@ import Vrej from "@/components/Vrej";
 import { GALLERY } from "@/lib/gallery";
 import { getDictionary, type Dictionary } from "@/lib/dictionaries";
 import { hasLocale, localePath, type Locale } from "@/lib/i18n";
-import { PHONE_E164, PHONE_ALT_E164, PHONE_LOCAL, SITE_NAME, SITE_URL, links } from "@/lib/site";
+import { PHONE_E164, PHONE_LOCAL, SITE_NAME, SITE_URL, links } from "@/lib/site";
 
 function buildJsonLd(lang: Locale, t: Dictionary) {
   const url = new URL(localePath(lang), SITE_URL).href;
@@ -19,7 +19,7 @@ function buildJsonLd(lang: Locale, t: Dictionary) {
       logo: `${SITE_URL}/icon.svg`,
       image: [`${SITE_URL}/images/hero-night.jpg`, `${SITE_URL}/images/platform.jpg`],
       description: t.schema.description,
-      telephone: [PHONE_E164, PHONE_ALT_E164],
+      telephone: PHONE_E164,
       priceRange: t.schema.priceRange,
       currenciesAccepted: "MDL",
       openingHoursSpecification: {

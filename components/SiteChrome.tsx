@@ -7,7 +7,7 @@ import { FacebookIcon, ViberIcon, WhatsAppIcon } from "@/components/Icons";
 import type { Dictionary } from "@/lib/dictionaries";
 import { localePath, type Locale } from "@/lib/i18n";
 import { areaLinks, serviceLinks } from "@/lib/landing";
-import { PHONE_ALT_LOCAL, PHONE_LOCAL, SITE_NAME, links } from "@/lib/site";
+import { PHONE_LOCAL, SITE_NAME, links } from "@/lib/site";
 
 export function MessengerButtons() {
   return (
@@ -145,9 +145,6 @@ export function SiteFooter({ lang, t, current }: { lang: Locale; t: Dictionary; 
               <div className="subdisplay">{t.footer.kicker}</div>
               <a href={links.tel} className="display footer-phone">
                 {PHONE_LOCAL}
-              </a>
-              <a href={links.telAlt} className="footer-alt">
-                {t.footer.alt} <strong>{PHONE_ALT_LOCAL}</strong>
               </a>
             </div>
             <div className="footer-social">

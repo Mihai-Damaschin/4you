@@ -125,7 +125,7 @@ const en: Dictionary = {
       },
       {
         q: "How do I call the tow truck?",
-        a: "Call +373 60 55 1000 or the alternative line +373 60 70 2828. You can also message us on Viber or WhatsApp — send your location and we'll come.",
+        a: "Call +373 60 55 1000. You can also message us on Viber or WhatsApp — send your location and we'll come.",
       },
     ],
   },
@@ -137,7 +137,6 @@ const en: Dictionary = {
   },
   footer: {
     kicker: "Non-stop, any time",
-    alt: "Alternative line:",
     city: "Chișinău",
     tagline: "Car towing in Chișinău, the suburbs and all of Moldova",
   },

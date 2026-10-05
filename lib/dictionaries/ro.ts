@@ -131,7 +131,7 @@ const ro = {
       },
       {
         q: "Cum chem evacuatorul?",
-        a: "Sună la 060 55 1000 sau pe linia alternativă 060 70 2828. Ne poți scrie și pe Viber sau WhatsApp — trimite locația și venim.",
+        a: "Sună la 060 55 1000. Ne poți scrie și pe Viber sau WhatsApp — trimite locația și venim.",
       },
     ],
   },
@@ -143,7 +143,6 @@ const ro = {
   },
   footer: {
     kicker: "Non-stop, la orice oră",
-    alt: "Linie alternativă:",
     city: "Chișinău",
     tagline: "Tractări auto în Chișinău, suburbii și în toată Moldova",
   },

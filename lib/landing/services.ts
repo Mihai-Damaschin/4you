@@ -22,6 +22,123 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
+    slug: "evacuator",
+    photo: 2,
+    copy: {
+      ro: {
+        name: "Evacuator",
+        title: "Evacuator Chișinău non-stop — de la 250 lei | 4You",
+        description:
+          "Evacuator în Chișinău, suburbii și în toată Moldova, 24/7. Evacuator cu platformă de 6 m și troliu electric, orice mașină în orice stare. De la 250 lei. Sună: 060 55 1000.",
+        h1: "EVACUATOR",
+        accent: "ORICE MAȘINĂ, ORICE STARE",
+        lead: "Mașina nu mai merge, are roțile blocate sau nu vrei să riști pe drum? Chemi evacuatorul, urcăm mașina pe platformă și o ducem unde spui tu — la service, acasă sau într-o parcare.",
+        sections: [
+          {
+            heading: "Evacuator cu platformă, nu cu cârlig",
+            text: "Evacuatorul nostru e un Mercedes Sprinter cu platformă de aproximativ 6 metri. Roțile nu ating asfaltul, deci cutia de viteze și transmisia nu se uzează, indiferent dacă mașina e cu tracțiune față, spate sau integrală.",
+          },
+          {
+            heading: "Și când roțile nu se învârt",
+            text: "Troliul electric al evacuatorului trage pe platformă mașini cu roțile blocate, fără baterie sau care nu pot fi puse în neutru. Nu e nevoie să o împingi până la drum.",
+          },
+          {
+            heading: "Preț clar înainte de plecare",
+            text: "Evacuatorul pornește de la 250 lei. Prețul final depinde de distanță și de tipul mașinii și îl afli la telefon, înainte să plecăm. Fiecare transport include o asigurare de bază.",
+          },
+        ],
+        faq: [
+          {
+            q: "Ce mașini poate lua evacuatorul?",
+            a: "Orice autoturism, în orice stare — avariat, care nu pornește sau cu roțile blocate — precum și motociclete și ATV-uri.",
+          },
+          {
+            q: "Cât costă un evacuator în Chișinău?",
+            a: "De la 250 lei. Prețul final depinde de distanță și de tipul mașinii și ți-l spunem la telefon, înainte să plecăm.",
+          },
+          {
+            q: "Unde poate duce evacuatorul mașina?",
+            a: "La orice service, acasă, într-o parcare sau în altă localitate din Moldova. La cerere facem curse și spre România sau Ucraina.",
+          },
+        ],
+      },
+      ru: {
+        name: "Эвакуатор",
+        title: "Эвакуатор Кишинёв 24/7 — от 250 лей | 4You",
+        description:
+          "Эвакуатор в Кишинёве, пригородах и по всей Молдове, круглосуточно. Эвакуатор с платформой 6 м и электролебёдкой, любая машина в любом состоянии. От 250 лей. Звоните: 060 55 1000.",
+        h1: "ЭВАКУАТОР",
+        accent: "ЛЮБАЯ МАШИНА, ЛЮБОЕ СОСТОЯНИЕ",
+        lead: "Машина не едет, колёса заблокированы или не хотите рисковать в дороге? Вызывайте эвакуатор — погрузим машину на платформу и отвезём, куда скажете: в сервис, домой или на парковку.",
+        sections: [
+          {
+            heading: "Эвакуатор с платформой, а не с крюком",
+            text: "Наш эвакуатор — Mercedes Sprinter с платформой длиной около 6 метров. Колёса не касаются асфальта, поэтому коробка передач и трансмиссия не изнашиваются — будь то передний, задний или полный привод.",
+          },
+          {
+            heading: "Даже если колёса не крутятся",
+            text: "Электролебёдка эвакуатора затягивает на платформу машины с заблокированными колёсами, без аккумулятора или без возможности включить нейтраль. Толкать машину к дороге не нужно.",
+          },
+          {
+            heading: "Понятная цена до выезда",
+            text: "Эвакуатор — от 250 лей. Итоговая цена зависит от расстояния и типа машины, и вы узнаёте её по телефону до выезда. Каждая перевозка включает базовую страховку.",
+          },
+        ],
+        faq: [
+          {
+            q: "Какие машины берёт эвакуатор?",
+            a: "Любой легковой автомобиль в любом состоянии — битый, не заводится или с заблокированными колёсами, — а также мотоциклы и квадроциклы.",
+          },
+          {
+            q: "Сколько стоит эвакуатор в Кишинёве?",
+            a: "От 250 лей. Итоговая цена зависит от расстояния и типа машины, мы назовём её по телефону до выезда.",
+          },
+          {
+            q: "Куда эвакуатор может отвезти машину?",
+            a: "В любой сервис, домой, на парковку или в другой населённый пункт Молдовы. По запросу выполняем рейсы в Румынию и Украину.",
+          },
+        ],
+      },
+      en: {
+        name: "Tow truck",
+        title: "Tow Truck Chișinău 24/7 — from 250 MDL | 4You",
+        description:
+          "Tow truck in Chișinău, the suburbs and all of Moldova, 24/7. Flatbed tow truck with a 6 m bed and electric winch, any car in any condition. From 250 MDL. Call: +373 60 55 1000.",
+        h1: "TOW TRUCK",
+        accent: "ANY CAR, ANY CONDITION",
+        lead: "The car won't drive, the wheels are locked or you'd rather not risk the road? Call the tow truck — we load the car onto the flatbed and take it wherever you say: a garage, home or a car park.",
+        sections: [
+          {
+            heading: "A flatbed tow truck, not a hook",
+            text: "Our tow truck is a Mercedes Sprinter with a flatbed of about 6 metres. The wheels never touch the road, so the gearbox and drivetrain aren't strained — front, rear or all-wheel drive.",
+          },
+          {
+            heading: "Even when the wheels won't turn",
+            text: "The tow truck's electric winch pulls cars with locked wheels, a dead battery or no way to shift into neutral onto the flatbed. You don't have to push it to the road.",
+          },
+          {
+            heading: "A clear price before we leave",
+            text: "The tow truck starts at 250 MDL. The final price depends on the distance and the type of car, and you get it on the phone before we leave. Every transport includes basic insurance.",
+          },
+        ],
+        faq: [
+          {
+            q: "What cars can the tow truck take?",
+            a: "Any passenger car in any condition — damaged, not starting or with locked wheels — as well as motorcycles and ATVs.",
+          },
+          {
+            q: "How much is a tow truck in Chișinău?",
+            a: "From 250 MDL. The final price depends on the distance and the type of car, and we tell you on the phone before we leave.",
+          },
+          {
+            q: "Where can the tow truck take the car?",
+            a: "To any garage, home, a car park or another town in Moldova. On request we also drive to Romania or Ukraine.",
+          },
+        ],
+      },
+    },
+  },
+  {
     slug: "tractare-auto",
     photo: 2,
     copy: {
