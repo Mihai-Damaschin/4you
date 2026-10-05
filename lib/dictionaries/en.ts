@@ -5,7 +5,7 @@ const en: Dictionary = {
     title: "Tow Truck Chișinău 24/7 — from 250 MDL | 4You",
     ogTitle: "24/7 Tow Truck in Chișinău — 4You",
     description:
-      "24/7 towing in Chișinău, the suburbs and all of Moldova. 6 m flatbed with winch, any car in any condition, from 250 MDL. We arrive in 20–30 min. Call: +373 60 55 1000.",
+      "24/7 towing in Chișinău, the suburbs and all of Moldova. 6 m flatbed with winch, any car in any condition, from 250 MDL. We arrive in 20–30 min on average. Call: +373 60 55 1000.",
   },
   langLabel: "Language",
   navLabel: "Main",
@@ -149,7 +149,7 @@ const en: Dictionary = {
     linksTitle: "SERVICES AND AREAS",
     linksLead: "All of Chișinău, the suburbs and the rest of Moldova — pick a service or a town.",
     servicesHeading: "Services",
-    areasHeading: "Suburbs",
+    areasHeading: "Districts & suburbs",
     otherAreas: "Other towns",
     otherServices: "Services",
     faqTitle: "COMMON",
@@ -168,18 +168,21 @@ const en: Dictionary = {
     priceText:
       "From 250 MDL. The final price depends on the distance and the type of car — you get it on the phone before we leave, with no hidden fees. On average we arrive in 20–30 minutes.",
     noteHeading: "Good to know",
-    faq: (a: AreaNames) => [
+    // inCity: a sector of Chișinău rather than a suburb.
+    faq: (a: AreaNames, inCity = false) => [
       {
         q: `How much does a tow truck ${a.inName} cost?`,
         a: "Towing starts at 250 MDL. The final price depends on the distance and the type of car, and we tell you on the phone before we leave.",
       },
       {
         q: `How fast will the tow truck arrive ${a.inName}?`,
-        a: "On average within 20–30 minutes, same as in Chișinău. We give you an estimated arrival time during the call.",
+        a: `On average within 20–30 minutes${inCity ? "" : ", same as in Chișinău"}. We give you an estimated arrival time during the call.`,
       },
       {
-        q: `Can you take my car ${a.fromName} to Chișinău or another town?`,
-        a: "Yes. We take it to any garage, home or car park in Chișinău, to another town in Moldova or, on request, to Romania or Ukraine.",
+        q: inCity
+          ? `Where can you take my car ${a.fromName}?`
+          : `Can you take my car ${a.fromName} to Chișinău or another town?`,
+        a: `${inCity ? "Wherever you say." : "Yes."} We take it to any garage, home or car park in Chișinău, to another town in Moldova or, on request, to Romania or Ukraine.`,
       },
     ],
   },

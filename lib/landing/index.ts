@@ -52,6 +52,6 @@ export function getLanding(slug: string, lang: Locale, t: Dictionary): Landing |
       { heading: t.area.priceHeading, text: t.area.priceText },
       { heading: t.area.noteHeading, text: c.note },
     ],
-    faq: t.area.faq(c),
+    faq: t.area.faq(c, area.sector),
   };
 }

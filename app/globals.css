@@ -107,7 +107,7 @@ a:hover { color: var(--accent); }
   content: "";
   position: absolute;
   inset: var(--brush-inset, -8px -12px);
-  background: url("/images/brush.png") center / 100% 100% no-repeat;
+  background: url("/images/brush.webp") center / 100% 100% no-repeat;
   z-index: -1;
 }
 .brush-label {
@@ -587,7 +587,7 @@ a:hover { color: var(--accent); }
 .footer-contact .subdisplay { font-size: clamp(20px, 2.4vw, 26px); }
 .footer-phone { font-size: clamp(56px, 8vw, 96px); line-height: 0.9; }
 .footer-social { display: flex; gap: 12px; align-items: center; }
-.footer-legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--faint); }
+.footer-legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--dim); }
 
 /* ---------- mobile call bar ---------- */
 

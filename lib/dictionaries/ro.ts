@@ -9,7 +9,7 @@ const ro = {
     title: "Evacuator Chișinău non-stop 24/7 — de la 250 lei | 4You",
     ogTitle: "Evacuator Chișinău non-stop 24/7 — 4You",
     description:
-      "Evacuator non-stop în Chișinău, suburbii și în toată Moldova. Platformă de 6 m cu troliu, orice mașină în orice stare, de la 250 lei. Sosim în 20–30 min. Sună: 060 55 1000.",
+      "Evacuator non-stop în Chișinău, suburbii și în toată Moldova. Platformă de 6 m cu troliu, orice mașină în orice stare, de la 250 lei. Sosim în medie în 20–30 min. Sună: 060 55 1000.",
   },
   langLabel: "Limba",
   navLabel: "Principal",
@@ -155,7 +155,7 @@ const ro = {
     linksTitle: "SERVICII ȘI ZONE",
     linksLead: "Tot Chișinăul, suburbiile și restul Moldovei — alege serviciul sau localitatea.",
     servicesHeading: "Servicii",
-    areasHeading: "Suburbii",
+    areasHeading: "Sectoare și suburbii",
     otherAreas: "Alte localități",
     otherServices: "Servicii",
     faqTitle: "ÎNTREBĂRI",
@@ -174,18 +174,21 @@ const ro = {
     priceText:
       "De la 250 lei. Prețul final depinde de distanță și de tipul mașinii — îl afli la telefon, înainte să plecăm, fără costuri ascunse. În medie ajungem în 20–30 de minute.",
     noteHeading: "Bine de știut",
-    faq: (a: AreaNames) => [
+    // inCity: a sector of Chișinău rather than a suburb.
+    faq: (a: AreaNames, inCity = false) => [
       {
         q: `Cât costă un evacuator ${a.inName}?`,
         a: "Tractarea pornește de la 250 lei. Prețul final depinde de distanță și de tipul mașinii și ți-l spunem la telefon, înainte să plecăm.",
       },
       {
         q: `În cât timp ajunge evacuatorul ${a.inName}?`,
-        a: "În medie în 20–30 de minute, ca și în Chișinău. Ora estimată de sosire ți-o spunem chiar în timpul apelului.",
+        a: `În medie în 20–30 de minute${inCity ? "" : ", ca și în Chișinău"}. Ora estimată de sosire ți-o spunem chiar în timpul apelului.`,
       },
       {
-        q: `Puteți duce mașina ${a.fromName} în Chișinău sau în altă localitate?`,
-        a: "Da. O ducem la orice service, acasă sau într-o parcare din Chișinău, în altă localitate din Moldova sau, la cerere, spre România ori Ucraina.",
+        q: inCity
+          ? `Unde puteți duce mașina ${a.fromName}?`
+          : `Puteți duce mașina ${a.fromName} în Chișinău sau în altă localitate?`,
+        a: `${inCity ? "Unde spui tu." : "Da."} O ducem la orice service, acasă sau într-o parcare din Chișinău, în altă localitate din Moldova sau, la cerere, spre România ori Ucraina.`,
       },
     ],
   },

@@ -1,7 +1,7 @@
 import type { AreaNames } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
 
-// Suburbs of Chișinău we have a page for. `about` and `note` are the only per-town copy,
+// Sectors and suburbs of Chișinău we have a page for. `about` and `note` are the only per-town copy,
 // so keep them specific to the place — the rest of the page comes from the `area` template in the dictionaries.
 // Geography is deliberately coarse (direction, well-known landmarks); the client should confirm before adding more.
 
@@ -11,10 +11,198 @@ export type Area = {
   slug: string;
   // Index into GALLERY on the home page; picks the photo shown on the page.
   photo: number;
+  // A sector of the city itself rather than a suburb; changes a few FAQ answers.
+  sector?: boolean;
   copy: Record<Locale, AreaCopy>;
 };
 
 export const AREAS: Area[] = [
+  {
+    slug: "evacuator-buiucani",
+    photo: 1,
+    sector: true,
+    copy: {
+      ro: {
+        name: "Buiucani",
+        inName: "în Buiucani",
+        fromName: "din Buiucani",
+        about:
+          "Buiucani e sectorul din vestul Chișinăului, de la Valea Morilor până la ieșirea spre Durlești. Venim la orice oră, pe bulevarde, în curțile blocurilor sau în sectorul privat.",
+        note: "Mașina a rămas cu roțile blocate în curtea blocului sau în garaj? Troliul electric o trage pe platformă, nu e nevoie s-o împingi până la drum.",
+      },
+      ru: {
+        name: "Буюканы",
+        inName: "на Буюканах",
+        fromName: "с Буюкан",
+        about:
+          "Буюканы — сектор на западе Кишинёва, от Валя Морилор до выезда на Дурлешты. Приезжаем в любое время: на бульвары, во дворы многоэтажек или в частный сектор.",
+        note: "Машина с заблокированными колёсами осталась во дворе или в гараже? Электролебёдка затянет её на платформу, толкать к дороге не нужно.",
+      },
+      en: {
+        name: "Buiucani",
+        inName: "in Buiucani",
+        fromName: "from Buiucani",
+        about:
+          "Buiucani is the district on the west side of Chișinău, from Valea Morilor to the road out to Durlești. We come at any hour, to the boulevards, apartment courtyards or the residential lanes.",
+        note: "Car stuck with locked wheels in a courtyard or a garage? The electric winch pulls it onto the flatbed, so you don't have to push it out to the road.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-botanica",
+    photo: 2,
+    sector: true,
+    copy: {
+      ro: {
+        name: "Botanica",
+        inName: "în Botanica",
+        fromName: "din Botanica",
+        about:
+          "Botanica e sectorul din sud-estul Chișinăului, cu bulevardul Dacia și drumul spre aeroport. Venim la orice oră, în cartier sau pe drumurile care ies din oraș.",
+        note: "Dacă mașina s-a oprit pe carosabil, aprinde avariile, pune triunghiul și sună. Încărcăm mașina repede, ca să nu stai mult în trafic.",
+      },
+      ru: {
+        name: "Ботаника",
+        inName: "на Ботанике",
+        fromName: "с Ботаники",
+        about:
+          "Ботаника — сектор на юго-востоке Кишинёва, с бульваром Дачия и дорогой в аэропорт. Приезжаем в любое время, во дворы или на выездные трассы из города.",
+        note: "Если машина встала на проезжей части, включите аварийку, выставьте знак и звоните. Грузим быстро, чтобы вы не стояли долго в потоке.",
+      },
+      en: {
+        name: "Botanica",
+        inName: "in Botanica",
+        fromName: "from Botanica",
+        about:
+          "Botanica is the district in the south-east of Chișinău, with Dacia Boulevard and the road to the airport. We come at any hour, to the neighbourhood or the roads leading out of the city.",
+        note: "If the car stopped on the road, turn on the hazard lights, set up the warning triangle and call. We load it quickly so you don't stand in traffic for long.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-ciocana",
+    photo: 0,
+    sector: true,
+    copy: {
+      ro: {
+        name: "Ciocana",
+        inName: "în Ciocana",
+        fromName: "din Ciocana",
+        about:
+          "Ciocana e sectorul din estul Chișinăului. Venim la orice oră, în cartier, în zona industrială sau pe drumurile spre ieșirea din oraș.",
+        note: "Din Ciocana ducem mașina la orice service din oraș sau din suburbii, inclusiv la reprezentanțele oficiale, ori acasă, unde ne spui.",
+      },
+      ru: {
+        name: "Чеканы",
+        inName: "на Чеканах",
+        fromName: "с Чекан",
+        about:
+          "Чеканы — сектор на востоке Кишинёва. Приезжаем в любое время: в жилой район, в промзону или на выезды из города.",
+        note: "С Чекан отвезём машину в любой сервис города или пригородов, в том числе к официальному дилеру, или домой — куда скажете.",
+      },
+      en: {
+        name: "Ciocana",
+        inName: "in Ciocana",
+        fromName: "from Ciocana",
+        about:
+          "Ciocana is the district on the east side of Chișinău. We come at any hour, to the residential area, the industrial zone or the roads out of the city.",
+        note: "From Ciocana we take the car to any garage in the city or the suburbs, including official dealers, or home — wherever you say.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-riscani",
+    photo: 3,
+    sector: true,
+    copy: {
+      ro: {
+        name: "Rîșcani",
+        inName: "în Rîșcani",
+        fromName: "din Rîșcani",
+        about:
+          "Rîșcani e sectorul din nordul Chișinăului, pe drumul spre Stăuceni și Cricova. Venim la orice oră, pe bulevarde, în curțile blocurilor sau în parcări.",
+        note: "Mașina nu pornește dimineața? Venim cu echipament de pornire și încercăm pe loc; dacă tot nu merge, o urcăm pe platformă și o ducem la service.",
+      },
+      ru: {
+        name: "Рышкановка",
+        inName: "на Рышкановке",
+        fromName: "с Рышкановки",
+        about:
+          "Рышкановка — сектор на севере Кишинёва, по дороге на Ставчены и Криково. Приезжаем в любое время: на бульвары, во дворы многоэтажек или на парковки.",
+        note: "Машина не заводится утром? Приедем с пусковым оборудованием и попробуем на месте; если не поможет — погрузим на платформу и отвезём в сервис.",
+      },
+      en: {
+        name: "Rîșcani",
+        inName: "in Rîșcani",
+        fromName: "from Rîșcani",
+        about:
+          "Rîșcani is the district in the north of Chișinău, on the road to Stăuceni and Cricova. We come at any hour, to the boulevards, apartment courtyards or car parks.",
+        note: "Car won't start in the morning? We bring jump-start equipment and try on the spot; if it still won't go, we load it onto the flatbed and take it to a garage.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-centru",
+    photo: 2,
+    sector: true,
+    copy: {
+      ro: {
+        name: "Centru",
+        inName: "în Centru",
+        fromName: "din Centru",
+        about:
+          "Venim în centrul Chișinăului la orice oră — pe bulevarde, pe străzile cu sens unic, în parcări și în curțile dintre blocuri.",
+        note: "În centru adresa exactă contează: trimite locația pe Viber sau WhatsApp și ajungem direct la mașină, fără să ocolim cartierul.",
+      },
+      ru: {
+        name: "Центр",
+        inName: "в Центре",
+        fromName: "из Центра",
+        about:
+          "Приезжаем в центр Кишинёва в любое время — на бульвары, на улицы с односторонним движением, на парковки и во дворы.",
+        note: "В центре важен точный адрес: отправьте локацию в Viber или WhatsApp, и мы подъедем прямо к машине, не петляя по кварталу.",
+      },
+      en: {
+        name: "Centru",
+        inName: "in Centru",
+        fromName: "from Centru",
+        about:
+          "We come to central Chișinău at any hour — to the boulevards, one-way streets, car parks and courtyards between the buildings.",
+        note: "In the centre the exact spot matters: send your location on Viber or WhatsApp and we drive straight to the car instead of circling the block.",
+      },
+    },
+  },
+  {
+    slug: "evacuator-telecentru",
+    photo: 1,
+    sector: true,
+    copy: {
+      ro: {
+        name: "Telecentru",
+        inName: "în Telecentru",
+        fromName: "din Telecentru",
+        about:
+          "Telecentru e în sud-vestul Chișinăului, aproape de Codru și de ieșirea spre Hîncești. Venim la orice oră, în cartier sau pe drumurile din jur.",
+        note: "După un accident, așteptăm să se termine actele cu poliția sau asiguratorul, apoi încărcăm mașina și o ducem unde ne spui.",
+      },
+      ru: {
+        name: "Телецентр",
+        inName: "на Телецентре",
+        fromName: "с Телецентра",
+        about:
+          "Телецентр — на юго-западе Кишинёва, рядом с Кодру и выездом на Хынчешты. Приезжаем в любое время, в жилой район или на окрестные дороги.",
+        note: "После ДТП дожидаемся окончания оформления с полицией или страховой, затем грузим машину и везём, куда скажете.",
+      },
+      en: {
+        name: "Telecentru",
+        inName: "in Telecentru",
+        fromName: "from Telecentru",
+        about:
+          "Telecentru is in the south-west of Chișinău, close to Codru and the road out to Hîncești. We come at any hour, to the neighbourhood or the nearby roads.",
+        note: "After an accident, we wait until the paperwork with the police or the insurer is done, then load the car and take it where you say.",
+      },
+    },
+  },
   {
     slug: "evacuator-durlesti",
     photo: 0,

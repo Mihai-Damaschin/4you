@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
+import { preconnect, preload } from "react-dom";
 import Script from "next/script";
 import { Archivo, Barlow_Condensed, Roboto, Roboto_Condensed } from "next/font/google";
 import { getDictionary } from "@/lib/dictionaries";
@@ -81,6 +82,12 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   if (!hasLocale(lang)) notFound();
 
   const fonts = [archivo, barlow, roboto, robotoCondensed].map((f) => f.variable).join(" ");
+
+  // The brush behind the call button is the LCP on mobile; as a CSS background it would only be found after the stylesheet.
+  preload("/images/brush.webp", { as: "image", type: "image/webp", fetchPriority: "high" });
+  // Hosts the Google Ads tag and conversion pings talk to.
+  preconnect("https://googleads.g.doubleclick.net");
+  preconnect("https://www.google.com");
 
   return (
     <html lang={lang} className={fonts}>

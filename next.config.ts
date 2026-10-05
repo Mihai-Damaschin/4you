@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   experimental: {
     // The root layout lives under app/[lang], so unmatched URLs need their own 404 page.
     globalNotFound: true,
