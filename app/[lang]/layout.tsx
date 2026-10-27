@@ -9,7 +9,9 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "../globals.css";
 
 const GOOGLE_ADS_ID = "AW-18482277256";
-const GOOGLE_ANALYTICS_ID = "G-HT2D4YWRTB";
+// GA4 (G-HT2D4YWRTB) lives inside this Google tag, shared with the unused Ads account AW-18486884978.
+// The G- ID has no loader of its own (/gtag/js?id=G-HT2D4YWRTB is a 404), so configuring it directly sends nothing.
+const GOOGLE_ANALYTICS_TAG = "GT-5M3JQ5ST";
 const CONTACT_CONVERSION = `${GOOGLE_ADS_ID}/CgOrCMCx4YsdEIjXhO1E`;
 const CALL_CONVERSION_VALUE = 1.0;
 const CHAT_CONVERSION_VALUE = 0.1;
@@ -100,7 +102,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', '${GOOGLE_ADS_ID}');
-gtag('config', '${GOOGLE_ANALYTICS_ID}');`}
+gtag('config', '${GOOGLE_ANALYTICS_TAG}');`}
         </Script>
         {/* Click-to-call conversion for every phone / Viber / WhatsApp link on the page.
             Beacon transport lets the hit go out while the link opens, so the click is never delayed. */}
