@@ -9,7 +9,8 @@ type ServiceCopy = {
   h1: string;
   accent: string;
   lead: string;
-  sections: { heading: string; text: string }[];
+  // areas: list the sector and suburb pages as links after the text.
+  sections: { heading: string; text: string; areas?: boolean }[];
   faq: { q: string; a: string }[];
 };
 
@@ -17,6 +18,8 @@ export type Service = {
   slug: string;
   // Index into GALLERY on the home page; picks the photo shown on the page.
   photo: number;
+  // Shows the price grid (lib/prices.ts) on this page.
+  prices?: boolean;
   copy: Record<Locale, ServiceCopy>;
 };
 
@@ -24,13 +27,14 @@ export const SERVICES: Service[] = [
   {
     slug: "evacuator",
     photo: 2,
+    prices: true,
     copy: {
       ro: {
         name: "Evacuator",
         title: "Evacuator Chișinău non-stop — de la 250 lei | 4You",
         description:
           "Evacuator în Chișinău, suburbii și în toată Moldova, 24/7. Evacuator cu platformă de 6 m și troliu electric, orice mașină în orice stare. De la 250 lei. Sună: 060 55 1000.",
-        h1: "EVACUATOR",
+        h1: "EVACUATOR CHIȘINĂU NON-STOP 24/7",
         accent: "ORICE MAȘINĂ, ORICE STARE",
         lead: "Mașina nu mai merge, are roțile blocate sau nu vrei să riști pe drum? Chemi evacuatorul, urcăm mașina pe platformă și o ducem unde spui tu — la service, acasă sau într-o parcare.",
         sections: [
@@ -43,8 +47,22 @@ export const SERVICES: Service[] = [
             text: "Troliul electric al evacuatorului trage pe platformă mașini cu roțile blocate, fără baterie sau care nu pot fi puse în neutru. Nu e nevoie să o împingi până la drum.",
           },
           {
-            heading: "Preț clar înainte de plecare",
-            text: "Evacuatorul pornește de la 250 lei. Prețul final depinde de distanță și de tipul mașinii și îl afli la telefon, înainte să plecăm. Fiecare transport include o asigurare de bază.",
+            heading: "Cum decurge o intervenție",
+            text: "Suni la 060 55 1000 și ne spui trei lucruri: unde ești, ce mașină ai și unde trebuie dusă. Dacă nu știi adresa exactă, trimite-ne locația pe Viber sau WhatsApp. Îți spunem prețul și cam în cât timp ajungem, apoi pornim spre tine. La fața locului urcăm mașina pe platformă, o fixăm și o ducem unde am stabilit. Nu e nevoie să mergi cu ea: ne spui doar cui o predăm la destinație.",
+          },
+          {
+            heading: "Ce vehicule luăm",
+            text: "Orice autoturism, cu tracțiune față, spate sau integrală, cu cutie manuală sau automată, în orice stare: avariat după un accident, care nu pornește, fără baterie sau cu roțile blocate. Transportăm și motociclete, scutere și ATV-uri, fixate pe platformă. Dacă ai altceva de mutat, spune-ne la telefon ce e și îți spunem pe loc dacă îl putem lua.",
+          },
+          {
+            heading: "Unde venim în Chișinău",
+            text: "În toate sectoarele orașului și în suburbii, la orice oră. În Chișinău ajungem în medie în 20–30 de minute; pentru localitățile mai îndepărtate îți spunem ora estimată în timpul apelului. Detalii pentru zona ta:",
+            areas: true,
+          },
+          {
+            heading: "Preț clar și asigurare",
+            // TODO: what the basic insurance covers, from the client.
+            text: "Evacuatorul pornește de la 250 lei. Prețul final depinde de distanță și de tipul mașinii și îl afli la telefon, înainte să plecăm. Fiecare transport include o asigurare de bază, iar pentru mașini de valoare mare sau cerințe speciale găsim împreună o opțiune potrivită.",
           },
         ],
         faq: [
@@ -60,6 +78,19 @@ export const SERVICES: Service[] = [
             q: "Unde poate duce evacuatorul mașina?",
             a: "La orice service, acasă, într-o parcare sau în altă localitate din Moldova. La cerere facem curse și spre România sau Ucraina.",
           },
+          {
+            // TODO: quote the night tariff once the price grid (lib/prices.ts) is filled in.
+            q: "Cât costă evacuatorul în Chișinău noaptea?",
+            a: "Lucrăm non-stop, deci venim și noaptea, în weekend și de sărbători. Tractarea pornește de la 250 lei, iar prețul exact ți-l spunem la telefon, înainte să plecăm, fără costuri ascunse.",
+          },
+          {
+            q: "Cum se calculează prețul?",
+            a: "Contează distanța — de unde luăm mașina și unde o ducem — și tipul mașinii. Pornim de la 250 lei, iar prețul exact ți-l confirmăm la telefon, înainte să plecăm, fără costuri ascunse.",
+          },
+          {
+            q: "Faceți curse Chișinău–Bălți sau Chișinău–Orhei?",
+            a: "Da, mergem în toată Moldova. Orhei e la circa 45 km de Chișinău, iar Bălți la circa 135 km. Prețul și ora estimată de sosire ți le spunem la telefon.",
+          },
         ],
       },
       ru: {
@@ -67,7 +98,7 @@ export const SERVICES: Service[] = [
         title: "Эвакуатор Кишинёв 24/7 — от 250 лей | 4You",
         description:
           "Эвакуатор в Кишинёве, пригородах и по всей Молдове, круглосуточно. Эвакуатор с платформой 6 м и электролебёдкой, любая машина в любом состоянии. От 250 лей. Звоните: 060 55 1000.",
-        h1: "ЭВАКУАТОР",
+        h1: "ЭВАКУАТОР КИШИНЁВ 24/7",
         accent: "ЛЮБАЯ МАШИНА, ЛЮБОЕ СОСТОЯНИЕ",
         lead: "Машина не едет, колёса заблокированы или не хотите рисковать в дороге? Вызывайте эвакуатор — погрузим машину на платформу и отвезём, куда скажете: в сервис, домой или на парковку.",
         sections: [
@@ -80,8 +111,21 @@ export const SERVICES: Service[] = [
             text: "Электролебёдка эвакуатора затягивает на платформу машины с заблокированными колёсами, без аккумулятора или без возможности включить нейтраль. Толкать машину к дороге не нужно.",
           },
           {
-            heading: "Понятная цена до выезда",
-            text: "Эвакуатор — от 250 лей. Итоговая цена зависит от расстояния и типа машины, и вы узнаёте её по телефону до выезда. Каждая перевозка включает базовую страховку.",
+            heading: "Как проходит вызов",
+            text: "Звоните на 060 55 1000 и скажите три вещи: где вы, какая у вас машина и куда её везти. Если не знаете точного адреса, отправьте локацию в Viber или WhatsApp. Мы назовём цену и примерное время прибытия и выезжаем к вам. На месте грузим машину на платформу, закрепляем и везём туда, куда договорились. Ехать с ней не обязательно — просто скажите, кому её передать.",
+          },
+          {
+            heading: "Какие машины берём",
+            text: "Любой легковой автомобиль — с передним, задним или полным приводом, с механикой или автоматом — в любом состоянии: битый после ДТП, не заводится, без аккумулятора или с заблокированными колёсами. Перевозим также мотоциклы, скутеры и квадроциклы, закреплёнными на платформе. Если нужно перевезти что-то другое, скажите по телефону, и мы сразу ответим, сможем ли взять.",
+          },
+          {
+            heading: "Куда приезжаем в Кишинёве",
+            text: "Во все секторы города и в пригороды, в любое время. По Кишинёву приезжаем в среднем за 20–30 минут; для более дальних населённых пунктов назовём примерное время во время звонка. Подробнее о вашем районе:",
+            areas: true,
+          },
+          {
+            heading: "Понятная цена и страховка",
+            text: "Эвакуатор — от 250 лей. Итоговая цена зависит от расстояния и типа машины, и вы узнаёте её по телефону до выезда. Каждая перевозка включает базовую страховку, а для дорогих автомобилей или особых требований подберём подходящий вариант.",
           },
         ],
         faq: [
@@ -97,6 +141,18 @@ export const SERVICES: Service[] = [
             q: "Куда эвакуатор может отвезти машину?",
             a: "В любой сервис, домой, на парковку или в другой населённый пункт Молдовы. По запросу выполняем рейсы в Румынию и Украину.",
           },
+          {
+            q: "Сколько стоит эвакуатор в Кишинёве ночью?",
+            a: "Мы работаем круглосуточно, поэтому приезжаем и ночью, в выходные и праздники. Эвакуация — от 250 лей, а точную цену назовём по телефону до выезда, без скрытых платежей.",
+          },
+          {
+            q: "Как рассчитывается цена?",
+            a: "Учитываем расстояние — откуда забираем машину и куда везём — и тип машины. Цена начинается от 250 лей, а точную сумму подтвердим по телефону до выезда, без скрытых платежей.",
+          },
+          {
+            q: "Ездите из Кишинёва в Бельцы или Орхей?",
+            a: "Да, по всей Молдове. Орхей — примерно в 45 км от Кишинёва, Бельцы — примерно в 135 км. Цену и примерное время прибытия назовём по телефону.",
+          },
         ],
       },
       en: {
@@ -104,7 +160,7 @@ export const SERVICES: Service[] = [
         title: "Tow Truck Chișinău 24/7 — from 250 MDL | 4You",
         description:
           "Tow truck in Chișinău, the suburbs and all of Moldova, 24/7. Flatbed tow truck with a 6 m bed and electric winch, any car in any condition. From 250 MDL. Call: +373 60 55 1000.",
-        h1: "TOW TRUCK",
+        h1: "TOW TRUCK CHIȘINĂU 24/7",
         accent: "ANY CAR, ANY CONDITION",
         lead: "The car won't drive, the wheels are locked or you'd rather not risk the road? Call the tow truck — we load the car onto the flatbed and take it wherever you say: a garage, home or a car park.",
         sections: [
@@ -117,8 +173,21 @@ export const SERVICES: Service[] = [
             text: "The tow truck's electric winch pulls cars with locked wheels, a dead battery or no way to shift into neutral onto the flatbed. You don't have to push it to the road.",
           },
           {
-            heading: "A clear price before we leave",
-            text: "The tow truck starts at 250 MDL. The final price depends on the distance and the type of car, and you get it on the phone before we leave. Every transport includes basic insurance.",
+            heading: "How a call-out works",
+            text: "Call 060 55 1000 and tell us three things: where you are, what car you have and where it needs to go. If you don't know the exact address, send us your location on Viber or WhatsApp. We give you the price and roughly when we'll get there, then we set off. On site we load the car onto the flatbed, strap it down and take it where we agreed. You don't have to go with it — just tell us who receives it at the destination.",
+          },
+          {
+            heading: "What we can take",
+            text: "Any passenger car — front, rear or all-wheel drive, manual or automatic — in any condition: damaged in an accident, not starting, with a dead battery or locked wheels. We also carry motorcycles, scooters and ATVs, strapped down on the flatbed. If you need something else moved, tell us on the phone what it is and we'll say right away whether we can take it.",
+          },
+          {
+            heading: "Where we go in Chișinău",
+            text: "Every district of the city and the suburbs, at any hour. In Chișinău we arrive in 20–30 minutes on average; for towns further out we give you an estimated time during the call. See your area:",
+            areas: true,
+          },
+          {
+            heading: "A clear price and insurance",
+            text: "The tow truck starts at 250 MDL. The final price depends on the distance and the type of car, and you get it on the phone before we leave. Every transport includes basic insurance, and for high-value cars or special requests we'll find a suitable option together.",
           },
         ],
         faq: [
@@ -134,6 +203,18 @@ export const SERVICES: Service[] = [
             q: "Where can the tow truck take the car?",
             a: "To any garage, home, a car park or another town in Moldova. On request we also drive to Romania or Ukraine.",
           },
+          {
+            q: "How much is a tow truck in Chișinău at night?",
+            a: "We work around the clock, so we also come at night, on weekends and on holidays. Towing starts at 250 MDL, and we tell you the exact price on the phone before we leave, with no hidden fees.",
+          },
+          {
+            q: "How is the price calculated?",
+            a: "It depends on the distance — where we pick the car up and where it goes — and on the type of car. Prices start at 250 MDL, and we confirm the exact amount on the phone before we leave, with no hidden fees.",
+          },
+          {
+            q: "Do you drive from Chișinău to Bălți or Orhei?",
+            a: "Yes, anywhere in Moldova. Orhei is about 45 km from Chișinău and Bălți about 135 km. We give you the price and the estimated arrival time on the phone.",
+          },
         ],
       },
     },
@@ -147,13 +228,13 @@ export const SERVICES: Service[] = [
         title: "Tractare auto Chișinău non-stop — de la 250 lei | 4You",
         description:
           "Tractare auto în Chișinău, suburbii și în toată Moldova, 24/7. Platformă de 6 m cu troliu electric, orice mașină în orice stare. De la 250 lei. Sună: 060 55 1000.",
-        h1: "TRACTARE AUTO",
+        h1: "TRACTĂRI AUTO CHIȘINĂU NON-STOP",
         accent: "ORICE MAȘINĂ, ORICE STARE",
-        lead: "Mașina nu mai merge, are roțile blocate sau nu vrei să riști pe drum? O urcăm pe platformă și o ducem unde spui tu — la service, acasă sau într-o parcare.",
+        lead: "Tractare auto în Chișinău, zi și noapte. Mașina nu mai merge, are roțile blocate sau nu vrei să riști pe drum? O urcăm pe platformă și o ducem unde spui tu — la service, acasă sau într-o parcare.",
         sections: [
           {
             heading: "Platformă, nu cârlig",
-            text: "Transportăm mașina pe o platformă de aproximativ 6 metri, pe un Mercedes Sprinter. Roțile nu ating asfaltul, deci cutia de viteze și transmisia nu se uzează, indiferent dacă mașina e cu tracțiune față, spate sau integrală.",
+            text: "Facem tractări auto pe o platformă de aproximativ 6 metri, pe un Mercedes Sprinter. Roțile nu ating asfaltul, deci cutia de viteze și transmisia nu se uzează, indiferent dacă mașina e cu tracțiune față, spate sau integrală.",
           },
           {
             heading: "Și când roțile nu se învârt",
@@ -170,7 +251,7 @@ export const SERVICES: Service[] = [
             a: "Orice autoturism, în orice stare — avariat, care nu pornește sau cu roțile blocate — precum și motociclete și ATV-uri.",
           },
           {
-            q: "Cât costă tractarea?",
+            q: "Cât costă tractarea auto în Chișinău?",
             a: "De la 250 lei. Prețul final depinde de distanță și de tipul mașinii și ți-l spunem la telefon, înainte să plecăm.",
           },
           {
@@ -184,7 +265,7 @@ export const SERVICES: Service[] = [
         title: "Эвакуация автомобилей Кишинёв 24/7 — от 250 лей | 4You",
         description:
           "Эвакуация автомобилей в Кишинёве, пригородах и по всей Молдове, круглосуточно. Платформа 6 м с электролебёдкой, любая машина в любом состоянии. От 250 лей. Звоните: 060 55 1000.",
-        h1: "ЭВАКУАЦИЯ АВТО",
+        h1: "ЭВАКУАЦИЯ АВТО КИШИНЁВ 24/7",
         accent: "ЛЮБАЯ МАШИНА, ЛЮБОЕ СОСТОЯНИЕ",
         lead: "Машина не едет, колёса заблокированы или не хотите рисковать в дороге? Погрузим её на платформу и отвезём, куда скажете — в сервис, домой или на парковку.",
         sections: [
@@ -221,7 +302,7 @@ export const SERVICES: Service[] = [
         title: "Car Towing Chișinău 24/7 — from 250 MDL | 4You",
         description:
           "Car towing in Chișinău, the suburbs and all of Moldova, 24/7. 6 m flatbed with electric winch, any car in any condition. From 250 MDL. Call: +373 60 55 1000.",
-        h1: "CAR TOWING",
+        h1: "CAR TOWING CHIȘINĂU 24/7",
         accent: "ANY CAR, ANY CONDITION",
         lead: "The car won't drive, the wheels are locked or you'd rather not risk the road? We load it onto the flatbed and take it wherever you say — a garage, home or a car park.",
         sections: [

@@ -7,7 +7,9 @@ import { FacebookIcon, ViberIcon, WhatsAppIcon } from "@/components/Icons";
 import type { Dictionary } from "@/lib/dictionaries";
 import { localePath, type Locale } from "@/lib/i18n";
 import { areaLinks, serviceLinks, townLinks } from "@/lib/landing";
-import { PHONE_LOCAL, SITE_NAME, links } from "@/lib/site";
+import { PRICES } from "@/lib/prices";
+import { PRIVACY_SLUG } from "@/lib/privacy";
+import { COMPANY, PHONE_LOCAL, REVIEWS, SITE_NAME, links } from "@/lib/site";
 
 export function MessengerButtons() {
   return (
@@ -98,6 +100,17 @@ export function CallCard({ t }: { t: Dictionary }) {
   );
 }
 
+// Arrival time, price and hours under the H1: what the ads promise, visible without scrolling.
+export function FactStrip({ facts }: { facts: string[] }) {
+  return (
+    <ul className="facts">
+      {facts.map((f) => (
+        <li key={f}>{f}</li>
+      ))}
+    </ul>
+  );
+}
+
 export function CallButton({ t }: { t: Dictionary }) {
   return (
     <a href={links.tel} className="brush hero-cta">
@@ -106,6 +119,88 @@ export function CallButton({ t }: { t: Dictionary }) {
         <span className="display hero-cta-number">{PHONE_LOCAL}</span>
       </span>
     </a>
+  );
+}
+
+// Who we are and how to reach us, with the company details (each line shows once its value is filled in).
+export function AboutContacts({ t }: { t: Dictionary }) {
+  const rows = [
+    {
+      label: t.about.phone,
+      value: (
+        <>
+          <a href={links.tel}>{PHONE_LOCAL}</a> · {t.about.phoneNote}
+        </>
+      ),
+    },
+    { label: t.about.hours, value: t.about.hoursValue },
+    COMPANY.email && { label: t.about.email, value: <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a> },
+    COMPANY.address && { label: t.about.address, value: COMPANY.address },
+    COMPANY.legalName && {
+      label: t.about.company,
+      value: COMPANY.idno ? `${COMPANY.legalName}, IDNO ${COMPANY.idno}` : COMPANY.legalName,
+    },
+    REVIEWS.url && REVIEWS.rating && {
+      label: t.about.reviews,
+      value: <a href={REVIEWS.url}>{t.about.reviewsValue(REVIEWS.rating, REVIEWS.count)}</a>,
+    },
+  ].filter((r) => !!r);
+
+  return (
+    <section id="contacte" className="container section-pad about">
+      <div className="section-head">
+        <div className="eyebrow">{t.about.eyebrow}</div>
+        <h2 className="display section-title">{t.about.title}</h2>
+        <p className="section-lead">{t.about.text}</p>
+      </div>
+      <dl className="contacts">
+        {rows.map((r) => (
+          <div key={r.label}>
+            <dt>{r.label}</dt>
+            <dd>{r.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
+// The price grid. Rows without a price are left out, and the whole block while none has one (lib/prices.ts).
+export function PriceBlock({ lang, t }: { lang: Locale; t: Dictionary }) {
+  const rows = (Object.keys(PRICES) as (keyof typeof PRICES)[])
+    .map((key) => ({ key, label: t.prices.rows[key], price: PRICES[key][lang] }))
+    .filter((r) => r.price);
+  if (!rows.length) return null;
+
+  return (
+    <section id="preturi" className="container section-pad about">
+      <div className="section-head">
+        <div className="eyebrow">{t.prices.eyebrow}</div>
+        <h2 className="display section-title">{t.prices.title}</h2>
+        <p className="section-lead">{t.prices.note}</p>
+      </div>
+      <dl className="contacts prices">
+        {rows.map((r) => (
+          <div key={r.key}>
+            <dt>{r.label}</dt>
+            <dd className="display">{r.price}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
+// The sector and suburb pages as inline links, for copy that says where we go.
+export function AreaLinks({ lang }: { lang: Locale }) {
+  return (
+    <ul className="area-links">
+      {areaLinks(lang).map((a) => (
+        <li key={a.slug}>
+          <a href={localePath(lang, a.slug)}>{a.name}</a>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -161,8 +256,19 @@ export function SiteFooter({ lang, t, current }: { lang: Locale; t: Dictionary; 
           <VrejStrip thickness={28} />
           <div className="footer-legal">
             <span>
-              © 2026 {SITE_NAME} · {t.footer.city}
+              © 2026 {COMPANY.legalName || SITE_NAME}
+              {COMPANY.idno && ` · IDNO ${COMPANY.idno}`} · {COMPANY.address || t.footer.city}
             </span>
+            <span>
+              {t.footer.hours}
+              {COMPANY.email && (
+                <>
+                  {" · "}
+                  <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
+                </>
+              )}
+            </span>
+            <a href={localePath(lang, PRIVACY_SLUG)}>{t.footer.privacy}</a>
             <span>{t.footer.tagline}</span>
           </div>
         </div>

@@ -17,10 +17,15 @@ const ro = {
   hero: {
     title: "TE-AI OPRIT?",
     accent: "VENIM NOI.",
+    // The RO home page stays as it was: the slogan at full size, no fact strip, no price grid. RU/EN lead with the
+    // service and the city instead (a smaller, wrapping title) and show the facts and prices like the landing pages.
+    sloganTitle: true,
     sub: "Evacuator non-stop în Chișinău și suburbii",
     lead: "Mașini avariate, în pană sau blocate — le luăm de oriunde din oraș și le ducem unde spui tu, zi sau noapte.",
     cta: "Sună acum",
   },
+  // What the ads promise, right under the H1 so it shows without scrolling. Towns get `town.facts` instead.
+  facts: ["Sosim în 20–30 min", "De la 250 lei", "Non-stop 24/7", "Platformă 6 m cu troliu"],
   call: {
     title: "CE NE SPUI LA TELEFON",
     steps: [
@@ -145,6 +150,36 @@ const ro = {
     kicker: "Non-stop, la orice oră",
     city: "Chișinău",
     tagline: "Tractări auto în Chișinău, suburbii și în toată Moldova",
+    hours: "Non-stop, 24/7",
+    privacy: "Politica de confidențialitate",
+  },
+  // "About us and contacts" on the service and town pages. Company details come from COMPANY in lib/site.ts.
+  about: {
+    eyebrow: "Despre noi",
+    title: "DESPRE NOI ȘI CONTACTE",
+    text: "Evacuator 4You e un serviciu de tractări auto din Chișinău care lucrează non-stop. Venim cu un Mercedes Sprinter cu platformă de aproximativ 6 metri și troliu electric și ducem mașina unde ne spui: la service, acasă sau într-o parcare, în Chișinău, în suburbii, în toată Moldova și, la cerere, spre România sau Ucraina. Prețul îl afli la telefon înainte să plecăm, iar fiecare transport include o asigurare de bază.",
+    phone: "Telefon",
+    phoneNote: "apel, Viber sau WhatsApp",
+    hours: "Program",
+    hoursValue: "Non-stop, 24/7 — inclusiv noaptea, în weekend și de sărbători",
+    email: "E-mail",
+    address: "Adresa bazei",
+    company: "Firma",
+    reviews: "Recenzii",
+    reviewsValue: (rating: string, count: string) => `${rating} din 5 · ${count} recenzii`,
+  },
+  // Price grid on /evacuator (and the RU/EN home page); the amounts live in lib/prices.ts.
+  prices: {
+    eyebrow: "Prețuri",
+    title: "CÂT COSTĂ EVACUATORUL",
+    note: "Prețul final depinde de distanță și de tipul mașinii. Ți-l confirmăm la telefon, înainte să plecăm, fără costuri ascunse.",
+    rows: {
+      city: "În Chișinău",
+      suburbs: "Suburbii",
+      perKm: "În afara Chișinăului, per km",
+      night: "Noaptea",
+      holidays: "De sărbători",
+    },
   },
   landing: {
     home: "Acasă",
@@ -175,6 +210,7 @@ const ro = {
     priceText:
       "De la 250 lei. Prețul final depinde de distanță și de tipul mașinii — îl afli la telefon, înainte să plecăm, fără costuri ascunse. În medie ajungem în 20–30 de minute.",
     noteHeading: "Bine de știut",
+    localHeading: (a: AreaNames) => `Unde venim ${a.inName}`,
     // inCity: a sector of Chișinău rather than a suburb.
     faq: (a: AreaNames, inCity = false) => [
       {
@@ -207,6 +243,17 @@ const ro = {
     priceText:
       "Prețul depinde de distanță și de tipul mașinii — îl afli la telefon, înainte să plecăm, fără costuri ascunse. Tot la telefon îți spunem ora estimată de sosire.",
     noteHeading: "Bine de știut",
+    localHeading: (a: AreaNames) => `Unde venim ${a.inName}`,
+    // TODO: the town's "de la" price (or the price per km) from the client; until then it is confirmed on the phone.
+    facts: (km: number) => [`La ${km} km de Chișinău`, "Preț confirmat la telefon", "Non-stop 24/7", "Platformă 6 m cu troliu"],
+    // Takes the place of the "20–30 min" point of `services`.
+    arrival: (km: number) => ({
+      prefix: "la",
+      value: String(km),
+      unit: "km",
+      title: "Serviciu de urgență 24/7",
+      text: "Distanța de la Chișinău. Ora estimată de sosire îți spunem la telefon. Non-stop, inclusiv noaptea și de sărbători.",
+    }),
     faq: (a: AreaNames) => [
       {
         q: `Cât costă un evacuator ${a.inName}?`,

@@ -17,7 +17,12 @@ export type Landing = {
   h1: string;
   accent: string;
   lead: string;
-  sections: { heading: string; text: string }[];
+  // The fact strip under the H1 and the four key points below the hero.
+  facts: string[];
+  services: Dictionary["services"];
+  // Shows the price grid (lib/prices.ts).
+  prices: boolean;
+  sections: { heading: string; text: string; areas?: boolean }[];
   faq: { q: string; a: string }[];
 };
 
@@ -37,7 +42,10 @@ export function townLinks(lang: Locale) {
 
 export function getLanding(slug: string, lang: Locale, t: Dictionary): Landing | undefined {
   const service = SERVICES.find((s) => s.slug === slug);
-  if (service) return { slug, kind: "service", photo: service.photo, ...service.copy[lang] };
+  if (service) {
+    const extras = { prices: !!service.prices, facts: t.facts, services: t.services };
+    return { slug, kind: "service", photo: service.photo, ...extras, ...service.copy[lang] };
+  }
 
   const town = TOWNS.find((a) => a.slug === slug);
   const area = town ?? AREAS.find((a) => a.slug === slug);
@@ -55,8 +63,12 @@ export function getLanding(slug: string, lang: Locale, t: Dictionary): Landing |
     h1: tpl.h1(c),
     accent: tpl.accent,
     lead: c.about,
+    prices: false,
+    facts: town ? t.town.facts(town.km) : t.facts,
+    services: town ? [t.town.arrival(town.km), ...t.services.slice(1)] : t.services,
     sections: [
       { heading: tpl.whatHeading(c), text: tpl.whatText },
+      ...(c.local ? [{ heading: tpl.localHeading(c), text: c.local }] : []),
       { heading: tpl.priceHeading, text: tpl.priceText },
       { heading: tpl.noteHeading, text: c.note },
     ],

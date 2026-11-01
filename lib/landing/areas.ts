@@ -5,7 +5,8 @@ import type { Locale } from "@/lib/i18n";
 // so keep them specific to the place — the rest of the page comes from the `area` template in the dictionaries.
 // Geography is deliberately coarse (direction, well-known landmarks); the client should confirm before adding more.
 
-type AreaCopy = AreaNames & { about: string; note: string };
+// local: the page's main unique text (about 100–150 words) on the place itself: roads, landmarks, where cars go.
+type AreaCopy = AreaNames & { about: string; note: string; local?: string };
 
 export type Area = {
   slug: string;
@@ -29,6 +30,8 @@ export const AREAS: Area[] = [
         about:
           "Buiucani e sectorul din vestul Chișinăului, de la Valea Morilor până la ieșirea spre Durlești. Venim la orice oră, pe bulevarde, în curțile blocurilor sau în sectorul privat.",
         note: "Mașina a rămas cu roțile blocate în curtea blocului sau în garaj? Troliul electric o trage pe platformă, nu e nevoie s-o împingi până la drum.",
+        local:
+          "Venim pe bulevardul Alba Iulia, pe strada Ion Creangă, în Sculeanca și pe Calea Ieșilor, la ieșirea din oraș spre Ungheni. Tot din Buiucani pornesc drumurile spre Durlești, Trușeni și Ghidighici, unde venim la fel, non-stop. În sector ajungem în medie în 20–30 de minute, iar dacă nu știi adresa exactă, trimite-ne locația pe Viber sau WhatsApp. Mașina o ducem unde spui tu: la un service din Buiucani sau din alt sector, acasă sau într-o parcare, iar la cerere și în altă localitate din Moldova. Prețul pornește de la 250 lei și ți-l spunem la telefon, înainte să plecăm.",
       },
       ru: {
         name: "Буюканы",
@@ -37,6 +40,8 @@ export const AREAS: Area[] = [
         about:
           "Буюканы — сектор на западе Кишинёва, от Валя Морилор до выезда на Дурлешты. Приезжаем в любое время: на бульвары, во дворы многоэтажек или в частный сектор.",
         note: "Машина с заблокированными колёсами осталась во дворе или в гараже? Электролебёдка затянет её на платформу, толкать к дороге не нужно.",
+        local:
+          "Приезжаем на бульвар Алба-Юлия, улицу Ион Крянгэ, в Скулянку и на Калеа Ешилор — на выезд из города в сторону Унген. С Буюкан начинаются и дороги на Дурлешты, Трушены и Гидигич, куда мы тоже выезжаем круглосуточно. По сектору приезжаем в среднем за 20–30 минут, а если не знаете точного адреса, отправьте нам локацию в Viber или WhatsApp. Машину отвезём, куда скажете: в сервис на Буюканах или в другом секторе, домой или на парковку, а по запросу — в другой населённый пункт Молдовы. Цена — от 250 лей, назовём её по телефону до выезда.",
       },
       en: {
         name: "Buiucani",
@@ -45,6 +50,8 @@ export const AREAS: Area[] = [
         about:
           "Buiucani is the district on the west side of Chișinău, from Valea Morilor to the road out to Durlești. We come at any hour, to the boulevards, apartment courtyards or the residential lanes.",
         note: "Car stuck with locked wheels in a courtyard or a garage? The electric winch pulls it onto the flatbed, so you don't have to push it out to the road.",
+        local:
+          "We come to Alba Iulia Boulevard, Ion Creangă Street, Sculeanca and Calea Ieșilor, the road out of the city towards Ungheni. The roads to Durlești, Trușeni and Ghidighici also start in Buiucani, and we go there around the clock as well. In the district we arrive in 20–30 minutes on average, and if you don't know the exact address, send us your location on Viber or WhatsApp. We take the car wherever you say: a garage in Buiucani or another district, home or a car park, and on request to another town in Moldova. Prices start at 250 MDL, and we tell you the price on the phone before we leave.",
       },
     },
   },

@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CallButton, CallCard, LinkColumns, SiteFooter, SiteHeader } from "@/components/SiteChrome";
+import { CallButton, CallCard, FactStrip, LinkColumns, PriceBlock, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import Vrej from "@/components/Vrej";
 import { GALLERY } from "@/lib/gallery";
 import { getDictionary, type Dictionary } from "@/lib/dictionaries";
 import { hasLocale, localePath, type Locale } from "@/lib/i18n";
-import { PHONE_E164, PHONE_LOCAL, SITE_NAME, SITE_URL, links } from "@/lib/site";
+import { COMPANY, PHONE_E164, PHONE_LOCAL, SITE_NAME, SITE_URL, links } from "@/lib/site";
 
 function buildJsonLd(lang: Locale, t: Dictionary) {
   const url = new URL(localePath(lang), SITE_URL).href;
@@ -32,7 +32,16 @@ function buildJsonLd(lang: Locale, t: Dictionary) {
         { "@type": "City", name: t.schema.city },
         { "@type": "Country", name: t.schema.country },
       ],
-      address: { "@type": "PostalAddress", addressLocality: t.schema.city, addressCountry: "MD" },
+      // Company details are left out until they are filled in (undefined drops out of the JSON).
+      legalName: COMPANY.legalName || undefined,
+      taxID: COMPANY.idno || undefined,
+      email: COMPANY.email || undefined,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: COMPANY.address || undefined,
+        addressLocality: t.schema.city,
+        addressCountry: "MD",
+      },
       contactPoint: {
         "@type": "ContactPoint",
         telephone: PHONE_E164,
@@ -75,13 +84,14 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
           <div className="hero-body">
             <div className="hero-main">
-              <h1 className="display hero-title">
+              <h1 className={t.hero.sloganTitle ? "display hero-title" : "display hero-title hero-title-long"}>
                 <span className="hero-title-line">{t.hero.title}</span>
                 <br />
                 <span className="accent">{t.hero.accent}</span>
               </h1>
               <div className="hero-copy">
                 <p className="subdisplay hero-sub">{t.hero.sub}</p>
+                {!t.hero.sloganTitle && <FactStrip facts={t.facts} />}
                 <p className="hero-lead">{t.hero.lead}</p>
               </div>
               <CallButton t={t} />
@@ -131,6 +141,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </div>
           </div>
         </section>
+
+        {!t.hero.sloganTitle && <PriceBlock lang={lang} t={t} />}
 
         <section id="galerie" className="container section-pad gallery">
           <div className="section-head">

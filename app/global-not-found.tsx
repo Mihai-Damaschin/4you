@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
 import { LOCALES, localePath } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
-
-const archivo = Archivo({ variable: "--font-archivo", subsets: ["latin", "latin-ext"] });
 
 const COPY = {
   ro: "Pagina nu există. Înapoi la prima pagină",
@@ -16,7 +13,7 @@ export const metadata: Metadata = { metadataBase: new URL(SITE_URL), title: "404
 
 export default function GlobalNotFound() {
   return (
-    <html lang="ro" className={archivo.variable}>
+    <html lang="ro">
       <body>
         <main className="container section-pad">
           <h1 className="display">404</h1>

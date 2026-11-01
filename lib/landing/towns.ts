@@ -3,10 +3,14 @@ import type { Area } from "./areas";
 // Towns further out in Moldova that people search for. Unlike the suburbs, arrival time and price are only given on the phone,
 // so these pages use the `town` template in the dictionaries. Distances are rounded road distances from Chișinău.
 
-export const TOWNS: Area[] = [
+// km is shown where the suburbs show the 20–30 min arrival time; keep it in line with the distance in `about`.
+export type Town = Area & { km: number };
+
+export const TOWNS: Town[] = [
   {
     slug: "evacuator-causeni",
     photo: 0,
+    km: 85,
     copy: {
       ro: {
         name: "Căușeni",
@@ -34,6 +38,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-comrat",
     photo: 1,
+    km: 95,
     copy: {
       ro: {
         name: "Comrat",
@@ -61,6 +66,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-hincesti",
     photo: 2,
+    km: 35,
     copy: {
       ro: {
         name: "Hîncești",
@@ -88,6 +94,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-orhei",
     photo: 3,
+    km: 45,
     copy: {
       ro: {
         name: "Orhei",
@@ -95,6 +102,8 @@ export const TOWNS: Area[] = [
         fromName: "din Orhei",
         about: "Orhei e la circa 45 km nord de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
         note: "Ai rămas pe traseu? Aprinde avariile, pune triunghiul și trimite-ne locația pe Viber sau WhatsApp — așa te găsim fără să cauți adresa.",
+        local:
+          "Venim în Orhei, în satele din raion și în zona Orheiului Vechi, la orice oră — noaptea, în weekend sau de sărbători. Până la Orhei sunt circa 45 km de Chișinău, pe traseul spre nordul țării, așa că ora estimată de sosire ți-o spunem la telefon, în funcție de unde e evacuatorul în acel moment. Mașina o putem lăsa la un service din Orhei, o putem duce acasă sau o aducem la Chișinău, la service-ul ori dealerul la care mergi de obicei; nu e nevoie să mergi cu ea, ne spui doar cui o predăm. Dacă știi deja unde trebuie să ajungă, spune-ne la telefon adresa sau numele service-ului — așa îți spunem din prima prețul.",
       },
       ru: {
         name: "Оргеев",
@@ -102,6 +111,8 @@ export const TOWNS: Area[] = [
         fromName: "из Оргеева",
         about: "Оргеев — примерно в 45 км севернее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
         note: "Застряли на трассе? Включите аварийку, выставьте знак и отправьте нам локацию в Viber или WhatsApp — так мы найдём вас без адреса.",
+        local:
+          "Приезжаем в Оргеев, в сёла района и к Старому Орхею в любое время — ночью, в выходные и праздники. От Кишинёва до Оргеева около 45 км по трассе на север страны, поэтому примерное время прибытия назовём по телефону — смотря где в этот момент эвакуатор. Машину можем оставить в сервисе в Оргееве, отвезти домой или доставить в Кишинёв — в ваш привычный сервис или к дилеру; ехать с ней не обязательно, просто скажите, кому её передать. Если уже знаете, куда её везти, назовите по телефону адрес или название сервиса — так мы сразу назовём цену.",
       },
       en: {
         name: "Orhei",
@@ -109,12 +120,15 @@ export const TOWNS: Area[] = [
         fromName: "from Orhei",
         about: "Orhei is about 45 km north of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
         note: "Stuck on the highway? Turn on the hazard lights, set up the warning triangle and send us your location on Viber or WhatsApp — we'll find you without an address.",
+        local:
+          "We come to Orhei, the villages in the district and the Orheiul Vechi area at any hour — nights, weekends and holidays included. Orhei is about 45 km from Chișinău on the road north, so we give you the estimated arrival time on the phone, depending on where the truck is at that moment. We can leave the car at a garage in Orhei, take it home or bring it to Chișinău, to the garage or dealer you usually use; you don't have to go with it, just tell us who receives it. If you already know where it should go, give us the address or the garage's name on the phone — that way we can quote the price straight away.",
       },
     },
   },
   {
     slug: "evacuator-straseni",
     photo: 0,
+    km: 25,
     copy: {
       ro: {
         name: "Strășeni",
@@ -142,6 +156,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-cahul",
     photo: 1,
+    km: 165,
     copy: {
       ro: {
         name: "Cahul",
@@ -169,6 +184,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-calarasi",
     photo: 2,
+    km: 55,
     copy: {
       ro: {
         name: "Călărași",
@@ -196,6 +212,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-ungheni",
     photo: 3,
+    km: 105,
     copy: {
       ro: {
         name: "Ungheni",
@@ -223,6 +240,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-cimislia",
     photo: 0,
+    km: 65,
     copy: {
       ro: {
         name: "Cimișlia",
@@ -250,6 +268,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-edinet",
     photo: 1,
+    km: 200,
     copy: {
       ro: {
         name: "Edineț",
@@ -277,6 +296,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-falesti",
     photo: 2,
+    km: 130,
     copy: {
       ro: {
         name: "Fălești",
@@ -304,6 +324,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-floresti",
     photo: 3,
+    km: 130,
     copy: {
       ro: {
         name: "Florești",
@@ -331,6 +352,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-rezina",
     photo: 0,
+    km: 95,
     copy: {
       ro: {
         name: "Rezina",
@@ -358,6 +380,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-soroca",
     photo: 1,
+    km: 150,
     copy: {
       ro: {
         name: "Soroca",
@@ -385,6 +408,7 @@ export const TOWNS: Area[] = [
   {
     slug: "evacuator-balti",
     photo: 2,
+    km: 135,
     copy: {
       ro: {
         name: "Bălți",
@@ -392,6 +416,8 @@ export const TOWNS: Area[] = [
         fromName: "din Bălți",
         about: "Bălți e la circa 135 km nord de Chișinău. Venim în oraș, în satele din jur și pe traseu, la orice oră.",
         note: "Mașina poate fi dusă la un service sau la o reprezentanță oficială din Chișinău. Nu e nevoie să mergi cu ea — ne spui doar cui o predăm.",
+        local:
+          "Bălți e cel mai mare oraș din nordul Moldovei, iar drumul de la Chișinău are circa 135 km, așa că ora estimată de sosire ți-o spunem la telefon, în funcție de unde e evacuatorul în acel moment. Venim și în satele din jur, și pe traseul Chișinău–Bălți, zi și noapte, inclusiv în weekend și de sărbători. Dacă te-ai oprit pe traseu, departe de o localitate, aprinde avariile, pune triunghiul și trimite-ne locația pe Viber sau WhatsApp, ca să te găsim fără să cauți repere. Pentru o cursă atât de lungă prețul depinde mai ales de distanță; ți-l spunem la telefon, înainte să plecăm, fără costuri ascunse.",
       },
       ru: {
         name: "Бельцы",
@@ -399,6 +425,8 @@ export const TOWNS: Area[] = [
         fromName: "из Бельц",
         about: "Бельцы — примерно в 135 км севернее Кишинёва. Приезжаем в город, в окрестные сёла и на трассу в любое время.",
         note: "Машину можно отвезти в сервис или к официальному дилеру в Кишинёве. Ехать с ней не обязательно — просто скажите, кому её передать.",
+        local:
+          "Бельцы — крупнейший город на севере Молдовы, а дорога от Кишинёва — около 135 км, поэтому примерное время прибытия назовём по телефону, смотря где в этот момент эвакуатор. Приезжаем и в окрестные сёла, и на трассу Кишинёв — Бельцы, днём и ночью, в том числе в выходные и праздники. Если вы встали на трассе вдали от населённого пункта, включите аварийку, выставьте знак и отправьте нам локацию в Viber или WhatsApp, чтобы мы нашли вас без ориентиров. На такой дальний рейс цена зависит в основном от расстояния; назовём её по телефону до выезда, без скрытых платежей.",
       },
       en: {
         name: "Bălți",
@@ -406,6 +434,8 @@ export const TOWNS: Area[] = [
         fromName: "from Bălți",
         about: "Bălți is about 135 km north of Chișinău. We come to the town, the villages around it and the highway, at any hour.",
         note: "We can take the car to a garage or an official dealer in Chișinău. You don't have to ride along — just tell us who to hand it over to.",
+        local:
+          "Bălți is the largest city in northern Moldova, and the road from Chișinău is about 135 km, so we give you the estimated arrival time on the phone, depending on where the truck is at that moment. We also come to the villages around it and to the Chișinău–Bălți highway, day and night, weekends and holidays included. If you've stopped on the highway far from a village, turn on the hazard lights, set up the warning triangle and send us your location on Viber or WhatsApp, so we find you without landmarks. On a trip this long the price depends mostly on the distance; we tell you on the phone before we leave, with no hidden fees.",
       },
     },
   },

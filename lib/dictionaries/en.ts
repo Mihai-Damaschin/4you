@@ -11,12 +11,14 @@ const en: Dictionary = {
   navLabel: "Main",
   nav: { services: "Services", gallery: "Gallery", faq: "FAQ", business: "For business" },
   hero: {
-    title: "BROKEN DOWN?",
-    accent: "WE'RE COMING.",
-    sub: "24/7 tow truck in Chișinău and the suburbs",
-    lead: "Damaged, broken down or with locked wheels — we pick your car up anywhere in the city and take it wherever you say, day or night.",
+    title: "TOW TRUCK IN\u00a0CHIȘINĂU",
+    accent: "24/7",
+    sloganTitle: false,
+    sub: "Broken down? We're coming.",
+    lead: "Damaged, broken down or with locked wheels — we pick your car up anywhere in Chișinău and the suburbs and take it wherever you say, day or night.",
     cta: "Call now",
   },
+  facts: ["Arrival in 20–30 min", "From 250 MDL", "Non-stop 24/7", "6 m flatbed with winch"],
   call: {
     title: "WHAT TO TELL US ON THE PHONE",
     steps: [
@@ -139,6 +141,34 @@ const en: Dictionary = {
     kicker: "Non-stop, any time",
     city: "Chișinău",
     tagline: "Car towing in Chișinău, the suburbs and all of Moldova",
+    hours: "Non-stop, 24/7",
+    privacy: "Privacy policy",
+  },
+  about: {
+    eyebrow: "About us",
+    title: "ABOUT US & CONTACTS",
+    text: "Evacuator 4You is a car towing service in Chișinău, open around the clock. We come with a Mercedes Sprinter with a flatbed of about 6 metres and an electric winch, and take your car wherever you say: a garage, home or a car park in Chișinău, the suburbs, anywhere in Moldova and, on request, to Romania or Ukraine. You get the price on the phone before we leave, and every transport includes basic insurance.",
+    phone: "Phone",
+    phoneNote: "call, Viber or WhatsApp",
+    hours: "Hours",
+    hoursValue: "Non-stop, 24/7 — nights, weekends and holidays included",
+    email: "E-mail",
+    address: "Base address",
+    company: "Company",
+    reviews: "Reviews",
+    reviewsValue: (rating: string, count: string) => `${rating} out of 5 · ${count} reviews`,
+  },
+  prices: {
+    eyebrow: "Prices",
+    title: "TOW TRUCK PRICES IN CHIȘINĂU",
+    note: "The final price depends on the distance and the type of car. We confirm it on the phone before we leave, with no hidden fees.",
+    rows: {
+      city: "In Chișinău",
+      suburbs: "Suburbs",
+      perKm: "Outside Chișinău, per km",
+      night: "At night",
+      holidays: "On holidays",
+    },
   },
   landing: {
     home: "Home",
@@ -169,6 +199,7 @@ const en: Dictionary = {
     priceText:
       "From 250 MDL. The final price depends on the distance and the type of car — you get it on the phone before we leave, with no hidden fees. On average we arrive in 20–30 minutes.",
     noteHeading: "Good to know",
+    localHeading: (a: AreaNames) => `Where we work ${a.inName}`,
     // inCity: a sector of Chișinău rather than a suburb.
     faq: (a: AreaNames, inCity = false) => [
       {
@@ -201,6 +232,16 @@ const en: Dictionary = {
     priceText:
       "The price depends on the distance and the type of car — you get it on the phone before we leave, with no hidden fees. We also give you the estimated arrival time on the call.",
     noteHeading: "Good to know",
+    localHeading: (a: AreaNames) => `Where we work ${a.inName}`,
+    // TODO: the town's "from" price (or the price per km) from the client; until then it is confirmed on the phone.
+    facts: (km: number) => [`${km} km from Chișinău`, "Price confirmed by phone", "Non-stop 24/7", "6 m flatbed with winch"],
+    arrival: (km: number) => ({
+      prefix: "",
+      value: String(km),
+      unit: "km",
+      title: "24/7 emergency service",
+      text: "Distance from Chișinău. We give you the estimated arrival time on the phone. Non-stop, including nights and holidays.",
+    }),
     faq: (a: AreaNames) => [
       {
         q: `How much does a tow truck ${a.inName} cost?`,

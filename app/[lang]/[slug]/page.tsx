@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CallButton, CallCard, SiteFooter, SiteHeader } from "@/components/SiteChrome";
+import {
+  AboutContacts,
+  AreaLinks,
+  CallButton,
+  CallCard,
+  FactStrip,
+  PriceBlock,
+  SiteFooter,
+  SiteHeader,
+} from "@/components/SiteChrome";
 import { getDictionary } from "@/lib/dictionaries";
 import { GALLERY } from "@/lib/gallery";
 import { LOCALES, OG_LOCALE, hasLocale, languageAlternates, localePath, type Locale } from "@/lib/i18n";
@@ -124,6 +133,7 @@ export default async function LandingPage({ params }: PageProps<"/[lang]/[slug]"
               <h1 className="display page-title">{page.h1}</h1>
               <div className="hero-copy">
                 <p className="subdisplay hero-sub accent">{page.accent}</p>
+                <FactStrip facts={page.facts} />
                 <p className="hero-lead">{page.lead}</p>
               </div>
               <CallButton t={t} />
@@ -136,7 +146,7 @@ export default async function LandingPage({ params }: PageProps<"/[lang]/[slug]"
         <section className="services" aria-label={t.servicesLabel}>
           <div className="container">
             <div className="services-grid">
-              {t.services.map((s) => (
+              {page.services.map((s) => (
                 <div key={s.title} className="service">
                   <div className="display service-value">
                     {s.prefix && <span className="service-affix">{s.prefix} </span>}
@@ -157,7 +167,7 @@ export default async function LandingPage({ params }: PageProps<"/[lang]/[slug]"
               src={photo.src}
               alt={t.gallery.items[page.photo].title}
               fill
-              sizes="(min-width: 1000px) 45vw, 100vw"
+              sizes="(min-width: 1000px) 40vw, calc(100vw - 36px)"
               style={{ objectPosition: photo.pos }}
             />
           </figure>
@@ -166,10 +176,13 @@ export default async function LandingPage({ params }: PageProps<"/[lang]/[slug]"
               <div key={s.heading}>
                 <h2 className="display page-section-title">{s.heading}</h2>
                 <p>{s.text}</p>
+                {s.areas && <AreaLinks lang={lang} />}
               </div>
             ))}
           </div>
         </section>
+
+        {page.prices && <PriceBlock lang={lang} t={t} />}
 
         <section className="faq">
           <div className="container section-pad faq-grid">
@@ -197,6 +210,8 @@ export default async function LandingPage({ params }: PageProps<"/[lang]/[slug]"
             </div>
           </div>
         </section>
+
+        <AboutContacts t={t} />
       </main>
 
       <SiteFooter lang={lang} t={t} current={page.slug} />
