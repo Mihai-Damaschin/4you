@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { preload } from "react-dom";
-import Script from "next/script";
 import { getDictionary } from "@/lib/dictionaries";
 import { LOCALES, OG_LOCALE, hasLocale, languageAlternates, localePath, type Locale } from "@/lib/i18n";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
@@ -17,23 +16,54 @@ const FONT_PRELOADS: Record<Locale, string[]> = {
 };
 
 // Inline in <head>, so it runs before the page can be tapped: conversions from clicks on phone, Viber and WhatsApp
-// links queue in dataLayer until gtag.js (loaded lazily, end of <body>) arrives and sends them.
-// Beacon transport lets the hit go out while the link opens, so the click is never delayed.
-const hits = (conversions: object[]) => JSON.stringify(conversions.map((c) => ({ ...c, transport_type: "beacon" })));
+// links queue in dataLayer until gtag.js arrives and sends them. gtag.js loads once the page has loaded and the browser
+// is idle, so its ~350 KiB of JS stays out of the first paint, or as soon as one of those links is tapped.
+// Calls work like Google's click snippet (gtag_report_conversion): the link opens once the conversion is sent. The wait
+// is capped, and skipped when gtag.js is blocked, so the call button always works.
+// Messages use beacon transport instead: the hit goes out while the link opens, so they never wait.
+const CALL_WAIT_MS = 1000;
+const messages = CONVERSIONS.message.map((c) => ({ ...c, transport_type: "beacon" }));
 
 const GOOGLE_TAG_INIT = `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 ${GOOGLE_TAG_IDS.map((id) => `gtag('config', '${id}');`).join("\n")}
-document.addEventListener('click', function (e) {
-  var a = e.target instanceof Element ? e.target.closest('a[href]') : null;
-  if (!a) return;
-  var href = a.getAttribute('href') || '';
-  var conversions = href.indexOf('tel:') === 0 ? ${hits(CONVERSIONS.call)}
-    : href.indexOf('viber:') === 0 || href.indexOf('https://wa.me/') === 0 ? ${hits(CONVERSIONS.message)}
-    : [];
-  conversions.forEach(function (params) { gtag('event', 'conversion', params); });
-});`;
+(function () {
+  var state = 'idle', waiting = null;
+  function load() {
+    if (state !== 'idle') return;
+    state = 'loading';
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_IDS[0]}';
+    s.onload = function () { state = 'loaded'; };
+    s.onerror = function () { state = 'blocked'; if (waiting) waiting(); };
+    document.head.appendChild(s);
+  }
+  window.addEventListener('load', function () {
+    if (window.requestIdleCallback) requestIdleCallback(load); else setTimeout(load, 1);
+  });
+  document.addEventListener('click', function (e) {
+    var a = e.target instanceof Element ? e.target.closest('a[href]') : null;
+    if (!a || e.defaultPrevented) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('tel:') === 0) {
+      e.preventDefault();
+      var opened = false;
+      var open = function () { if (!opened) { opened = true; location.href = href; } };
+      var calls = ${JSON.stringify(CONVERSIONS.call)};
+      var pending = calls.length;
+      calls.forEach(function (params) {
+        params.event_callback = function () { if (--pending === 0) open(); };
+        gtag('event', 'conversion', params);
+      });
+      if (state === 'blocked') open(); else { waiting = open; setTimeout(open, ${CALL_WAIT_MS}); }
+    } else if (href.indexOf('viber:') === 0 || href.indexOf('https://wa.me/') === 0) {
+      ${JSON.stringify(messages)}.forEach(function (params) { gtag('event', 'conversion', params); });
+    } else return;
+    load();
+  });
+})();`;
 
 export const dynamicParams = false;
 
@@ -85,11 +115,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         {/* A plain inline script: next/script's beforeInteractive would only run it once the Next.js runtime loads. */}
         <script dangerouslySetInnerHTML={{ __html: GOOGLE_TAG_INIT }} />
       </head>
-      <body>
-        {children}
-        {/* After the load event, when the browser is idle: the tags' ~350 KiB of JS stays out of the first paint. */}
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_IDS[0]}`} strategy="lazyOnload" />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
